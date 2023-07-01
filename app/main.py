@@ -27,9 +27,4 @@ def main():
                     st.markdown(f"Accuracy: {accuracy:}")
                     st.markdown(f"AORC: {aorc:}")
                 
-                
-                
-                
-        
-
 main()

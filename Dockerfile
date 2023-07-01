@@ -22,4 +22,5 @@ EXPOSE 8080
 
 
 #Run streamlit server
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app
 CMD streamlit run ./app/main.py --server.port $PORT
