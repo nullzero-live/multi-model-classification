@@ -15,7 +15,7 @@ import wandb
 #wandb.config()
              
 def gc_auth():
-    os.genenv("GOOGLE_APPLICATION_CREDENTIALS")
+    os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
     storage_client = storage.Client()
     bucket = storage_client.bucket("datasets-tabular")
     blob = bucket.blob("Heart_Failure_Details.csv")
