@@ -14,7 +14,7 @@ from aorc import acc_aorc
 import wandb
              
 def gc_auth():
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "./sklearn-gcp-326419-0d1e2b0e0e1e.json"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "app/sklearn-gcp-391120-24b6db43202e.json"
     storage_client = storage.Client()
     bucket = storage_client.bucket("datasets-tabular")
     blob = bucket.blob("Heart_Failure_Details.csv")
