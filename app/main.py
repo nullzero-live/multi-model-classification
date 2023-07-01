@@ -1,10 +1,12 @@
 import os
-from app import gc_auth, process_data
+from app_wandb import gc_auth, process_data
 import streamlit as st
 
 
 
 def main():
+    GOOGLE_APPLICATION_CREDENTIALS="/path/to/your/keyfile.json"
+    
     # App title
     st.title("Running multiple models in a Streamlit app")
 
