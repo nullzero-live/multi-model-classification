@@ -3,7 +3,6 @@ import os
 import pandas as pd
 import wandb
 from sklearn.model_selection import train_test_split
-from imblearn.over_sampling import SMOTE
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegressionCV
 from google.cloud import storage
@@ -79,6 +78,7 @@ def process_data(df):
         
         
     return results
+
         
         
         
