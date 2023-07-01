@@ -64,14 +64,18 @@ def process_data(df):
 
         acc, aorc = acc_aorc(y_test, preds)
         labels = ["No Death", "Death"]
-        wandb.sklearn.plot_confusion_matrix(y_test, preds, labels)
-        wandb.log({"accuracy": acc})
-        wandb.log({"aorc": aorc})
-        wandb.sklearn.plot_classifier(classifier, X_train, X_test, y_train, y_test, preds, probs, labels,
-                                                         model_name=classifier, feature_names=None)
+        try:
+            wandb.sklearn.plot_confusion_matrix(y_test, preds, labels)
+            wandb.log({"accuracy": acc})
+            wandb.log({"aorc": aorc})
+            wandb.sklearn.plot_classifier(classifier, X_train, X_test, y_train, y_test, preds, probs, labels,
+                                                            model_name=classifier, feature_names=None)
 
-        wandb.sklearn.plot_roc(y_test, probs, labels)
-        
+            wandb.sklearn.plot_roc(y_test, probs, labels)
+        except Exception as e:
+            print(e)
+            pass
+            
         print(f"The result for {classifier} is: Acc: {acc} and AORC: {aorc}\n")
         results["Classifier"].append(classifier)
         results["Accuracy"].append(acc)
