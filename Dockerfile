@@ -10,7 +10,7 @@ FROM python:3.10-slim
 EXPOSE 8080
 ENV APP_HOME /app
 WORKDIR $APP_HOME
-COPY . ./
+COPY . .
 
 # Install production dependencies.
 
