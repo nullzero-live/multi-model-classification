@@ -15,7 +15,8 @@ import wandb
 #wandb.config()
              
 def gc_auth():
-    os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+    key_path = './sklearn-gcp-391120-24b6db43202e.json'
+    os.environ("GOOGLE_APPLICATION_CREDENTIALS") = key_path
     storage_client = storage.Client()
     bucket = storage_client.bucket("datasets-tabular")
     blob = bucket.blob("Heart_Failure_Details.csv")
