@@ -15,7 +15,7 @@ COPY . .
 # Install production dependencies.
 
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r ./app/requirements.txt
 ENV WANDB_API_KEY=1e66f6bcbee6295454fb2a9cb4fbf3638024b969
 ENV PORT 8080
 
