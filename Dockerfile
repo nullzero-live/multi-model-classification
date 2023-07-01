@@ -13,7 +13,7 @@ COPY . ./
 
 # Install production dependencies.
 
-RUN ls
+
 RUN pip install --no-cache-dir -r ./app/requirements.txt
 
 EXPOSE 8080
