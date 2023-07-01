@@ -13,10 +13,12 @@ import warnings
 from sklearn.exceptions import ConvergenceWarning
 import wandb
 from aorc import acc_aorc
+import wandb
 
 
-wandb.login()
-#add wandb config
+#wandb.login(os.environ.get("WANDB_API_KEY"))
+#wandb.init(project="visualize-sklearn")
+
 #wandb.config()
              
 def gc_auth():

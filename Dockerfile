@@ -15,12 +15,9 @@ COPY . ./
 
 
 RUN pip install --no-cache-dir -r ./app/requirements.txt
-
+ENV WANDB_API_KEY=1e66f6bcbee6295454fb2a9cb4fbf3638024b969
 ENV PORT 8080
-EXPOSE 8080
-
-
 
 #Run streamlit server
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app
-CMD streamlit run ./app/main.py --server.port $PORT
+#ENTRYPOINT exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app
+CMD streamlit run main.py --server.port $PORT
