@@ -15,8 +15,6 @@ import wandb
 #wandb.config()
              
 def gc_auth():
-    key_path = './sklearn-gcp-391120-24b6db43202e.json'
-    os.environ(key_path)
     storage_client = storage.Client()
     bucket = storage_client.bucket("datasets-tabular")
     blob = bucket.blob("Heart_Failure_Details.csv")
@@ -34,7 +32,7 @@ def gc_auth():
 
 
             
-def process_data(df):
+def process_data(clf, df):
     api_key = os.getenv("WANDB_API_KEY")
 
     if api_key is not None:
