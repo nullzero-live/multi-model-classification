@@ -1,0 +1,15 @@
+import os
+from app import gc_auth, process_data
+import streamlit as st
+
+
+def main():
+    print("authenticating...\n")
+    ("running model...\n")
+    df=gc_auth()
+    results = process_data(df)
+    
+    return results
+    
+
+main()
