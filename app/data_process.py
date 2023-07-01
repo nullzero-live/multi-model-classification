@@ -5,14 +5,13 @@ import wandb
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegressionCV
+from sklearn.svm import LinearSVC
 from google.cloud import storage
 import warnings
 from sklearn.exceptions import ConvergenceWarning
 import wandb
 from aorc import acc_aorc
 import wandb
-
-#wandb.config()
              
 def gc_auth():
     storage_client = storage.Client()
@@ -29,9 +28,7 @@ def gc_auth():
         print(e)
         df = ""
     return df
-
-
-            
+     
 def process_data(clf, df):
     api_key = os.getenv("WANDB_API_KEY")
 
@@ -53,7 +50,7 @@ def process_data(clf, df):
     print("fitting model...\n")      
    
     #Set classifiers to use
-    clfs = [RandomForestClassifier(n_estimators=100, max_depth=4, random_state=42), LogisticRegressionCV(random_state=42)]
+    clfs = [RandomForestClassifier(n_estimators=100, max_depth=4, random_state=42), LogisticRegressionCV(random_state=42), SVM(C=1, loss="hinge", random_state=42)]
     
     results = {"Classifier": [], "Accuracy": [], "AORC": []}
     

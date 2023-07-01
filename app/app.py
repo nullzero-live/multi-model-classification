@@ -8,8 +8,6 @@ def main():
     st.header("Logistic Regression")
     st.header("Random Forest")
     
-    
-
     # Query response
     textarea = st.text("Response Text",)
     if st.button("Start"):
