@@ -1,0 +1,15 @@
+main.bak
+creditcard.csv
+Dockerfile
+.gitignore
+.Dockerignore
+README.md
+tests.py
+.env
+venv/
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+.pytest_cache
+*.bak
