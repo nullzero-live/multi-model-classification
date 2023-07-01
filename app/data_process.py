@@ -63,14 +63,17 @@ def process_data(df):
         result = classifier.fit(X_train, y_train)
         print(f"Getting {classifier} predictions...\n")
         preds = result.predict(X_test)
+        probs = classifier.predict_proba(X_test)
 
         acc, aorc = acc_aorc(y_test, preds)
         labels = ["No Death", "Death"]
+        wandb.sklearn.plot_confusion_matrix(y_test, preds, labels)
         wandb.log({"accuracy": acc})
         wandb.log({"aorc": aorc})
-        wandb.sklearn.plot_classifier(classifier, X_train, X_test, y_train, y_test, preds, labels,
+        wandb.sklearn.plot_classifier(classifier, X_train, X_test, y_train, y_test, preds, probs, labels,
                                                          model_name=classifier, feature_names=None)
-        wandb.sklearn.plot_roc(y_test, preds, labels)
+
+        wandb.sklearn.plot_roc(y_test, probs, labels)
         
         print(f"The result for {classifier} is: Acc: {acc} and AORC: {aorc}\n")
         results["Classifier"].append(classifier)
