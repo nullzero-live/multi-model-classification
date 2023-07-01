@@ -14,9 +14,6 @@ import wandb
 from aorc import acc_aorc
 import wandb
 
-
-
-
 #wandb.config()
              
 def gc_auth():
