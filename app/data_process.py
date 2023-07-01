@@ -51,7 +51,7 @@ def process_data(df):
     print("fitting model...\n")      
    
     #Set classifiers to use
-    clfs = [RandomForestClassifier(n_estimators=100, max_depth=4, random_state=42), LogisticRegressionCV(random_state=42), SVM(C=1, loss="hinge", random_state=42)]
+    clfs = [RandomForestClassifier(n_estimators=100, max_depth=4, random_state=42), LogisticRegressionCV(random_state=42), LinearSVC(random_state=42)]
     
     results = {"Classifier": [], "Accuracy": [], "AORC": []}
     

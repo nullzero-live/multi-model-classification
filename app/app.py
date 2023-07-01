@@ -5,8 +5,7 @@ import streamlit as st
 def main():
     # App title
     st.title("Running multiple models in a Streamlit app")
-    st.header("Logistic Regression")
-    st.header("Random Forest")
+    st.header("Logistic Regression & Random Forest Classifiers")
     
     # Query response
     textarea = st.text("Response Text",)
