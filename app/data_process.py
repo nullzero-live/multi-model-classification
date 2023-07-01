@@ -30,7 +30,7 @@ def gc_auth():
         df = ""
     return df
      
-def process_data(clf, df):
+def process_data(df):
     api_key = os.getenv("WANDB_API_KEY")
 
     if api_key is not None:
