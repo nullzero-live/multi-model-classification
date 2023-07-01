@@ -13,11 +13,9 @@ WORKDIR $APP_HOME
 COPY . .
 
 # Install production dependencies.
-
-
 RUN pip install --no-cache-dir -r ./app/requirements.txt
 ENV WANDB_API_KEY=1e66f6bcbee6295454fb2a9cb4fbf3638024b969
 ENV PORT 8080
 
 #Run streamlit server
-ENTRYPOINT ["streamlit", "run", "main.py", "--server.port=8080", "--server.address=0.0.0.0"]
+CMD streamlit run ./app/main.py --server.port $PORT
