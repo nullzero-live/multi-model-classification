@@ -15,6 +15,7 @@ import wandb
 #wandb.config()
              
 def gc_auth():
+    os.genenv("GOOGLE_APPLICATION_CREDENTIALS")
     storage_client = storage.Client()
     bucket = storage_client.bucket("datasets-tabular")
     blob = bucket.blob("Heart_Failure_Details.csv")
@@ -42,7 +43,7 @@ def process_data(df):
         
     else:
         print("WANDB KEY NOT FOUND")
-        pass
+        Exception("WANDB KEY NOT FOUND")
     #supress convergence warnings
     warnings.filterwarnings("ignore", category=ConvergenceWarning)
     X = df.drop('death', axis=1)
@@ -65,7 +66,7 @@ def process_data(df):
 
         acc, aorc = acc_aorc(y_test, preds)
         labels = ["No Death", "Death"]
-        wandb.log({"accuracy": accuracy})
+        wandb.log({"accuracy": acc})
         wandb.log({"aorc": aorc})
         wandb.sklearn.plot_classifier(classifier, X_train, X_test, y_train, y_test, preds, labels,
                                                          model_name=classifier, feature_names=None)
