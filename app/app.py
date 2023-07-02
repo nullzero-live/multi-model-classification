@@ -15,8 +15,9 @@ def main():
     textarea = st.text("Response Text",)
     if st.button("Start"):
             # Start the spinner
+            api_key = st.text_input("Enter your OpenAPI Key Here...")
             with st.spinner("Running functions..."):
-                api_key = st.text_input("Enter your OpenAPI Key Here...")
+                
                 openai.api_key = api_key
                 textarea.write("authenticating...")
                 df=gc_auth()
