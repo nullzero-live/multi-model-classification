@@ -18,11 +18,10 @@ def main():
     else:
         print("Error with API key")
     
-    llm = OpenAI(model_name="text-davinci-003", openai_api_key=api_key)
-    
     # Query response
     textarea = st.text("Response Text",)
     if st.button("Start"):
+            openai.api_key = api_key
             # Start the spinner
             with st.spinner("Running functions..."):
                 textarea.write("authenticating...")
@@ -35,6 +34,7 @@ def main():
                     st.header(f"{classifier:}")
                     st.markdown(f"Accuracy: {accuracy:}")
                     st.markdown(f"AORC: {aorc:}")
+    llm = OpenAI(model_name="text-davinci-003", openai_api_key=api_key)
     summaryarea=st.text("Summary Text",)
     summaryarea.write("This is a summary of the results...")
     summaryarea.write(llm(f"summarize: {results}"))
