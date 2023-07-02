@@ -13,11 +13,6 @@ def main():
     st.header("Logistic Regression & Random Forest Classifiers")
     
     api_key = st.text_input("Enter your OpenAPI Key Here...")
-    if api_key:
-        openai.api_key = api_key
-    else:
-        print("Error with API key")
-    
     # Query response
     textarea = st.text("Response Text",)
     if st.button("Start"):
