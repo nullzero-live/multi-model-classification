@@ -5,7 +5,7 @@ import openai
 from langchain.llms import OpenAI
 
 
- = OpenAI(model_name="text-davinci-003", openai_api_key=)
+
 
 def main():
     # App title
@@ -13,6 +13,7 @@ def main():
     st.header("Logistic Regression & Random Forest Classifiers")
     
     api_key = st.text_input("Enter your OpenAPI Key Here...")
+    llm = OpenAI(model_name="text-davinci-003", openai_api_key=api_key)
     if api_key:
         openai.api_key = api_key
     else:
@@ -37,7 +38,7 @@ def main():
                     st.markdown(f"AORC: {aorc:}")
     summaryarea=st.text("Summary Text",)
     summaryarea.write("This is a summary of the results...")
-    summaryarea.write(llm(f"summarize: {results}"))
+    summaryarea.write(llm(f"summarize: "{results}))
     
     
     
