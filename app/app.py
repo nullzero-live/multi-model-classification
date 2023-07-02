@@ -10,12 +10,11 @@ from langchain.llms import OpenAI
 def main():
     # App title
     st.title("Running multiple models in a Streamlit app")
-    st.header("Logistic Regression & Random Forest Classifiers")
-    
-    api_key = st.text_input("Enter your OpenAPI Key Here...")
+    st.header("Logistic Regression & Random Forest Classifiers"))
     # Query response
     textarea = st.text("Response Text",)
     if st.button("Start"):
+            api_key = st.text_input("Enter your OpenAPI Key Here...")
             openai.api_key = api_key
             # Start the spinner
             with st.spinner("Running functions..."):
