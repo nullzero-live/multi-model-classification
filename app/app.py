@@ -4,9 +4,6 @@ import streamlit as st
 import openai
 from langchain.llms import OpenAI
 
-
-
-
 def main():
     # App title
     st.title("Running multiple models in a Streamlit app")
@@ -14,7 +11,7 @@ def main():
     # Query response
     textarea = st.text("Response Text",)
     api_key = st.text_input("Enter your OpenAPI Key Here...")
-    if st.button("Start"):
+    if st.button("Start") and api_key:
             # Start the spinner
             with st.spinner("Running functions..."):
                 openai.api_key = api_key
