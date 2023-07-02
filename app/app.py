@@ -14,10 +14,10 @@ def main():
     # Query response
     textarea = st.text("Response Text",)
     if st.button("Start"):
-            api_key = st.text_input("Enter your OpenAPI Key Here...")
-            openai.api_key = api_key
             # Start the spinner
             with st.spinner("Running functions..."):
+                api_key = st.text_input("Enter your OpenAPI Key Here...")
+                openai.api_key = api_key
                 textarea.write("authenticating...")
                 df=gc_auth()
                 textarea.write("Authenticated successfully...")
