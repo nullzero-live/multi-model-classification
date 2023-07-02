@@ -30,6 +30,7 @@ def main():
                     st.markdown(f"Accuracy: {accuracy:}")
                     st.markdown(f"AORC: {aorc:}")
     llm = OpenAI(model_name="text-davinci-003", openai_api_key=api_key)
+    st.title("Summary Text")
     summaryarea=st.text("Summary Text",)
     summaryarea.write("This is a summary of the results...")
     summaryarea.write(llm(f"summarize: {results}"))
