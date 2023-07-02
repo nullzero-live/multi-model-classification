@@ -29,10 +29,10 @@ def main():
                     st.markdown(f"Accuracy: {accuracy:}")
                     st.markdown(f"AORC: {aorc:}")
     llm = OpenAI(model_name="text-davinci-003", openai_api_key=api_key)
-    st.title("Summary of Results")
+    st.title("Summary of Results Incoming... Please Wait.")
     summaryarea=st.text("Summary Text",)
     summaryarea.write("This is a summary of the results...")
-    summaryarea.write(llm(f"summarize: {results} as percentages"))
+    summaryarea.write(llm(f"summarize: {results} as percentages and explain the meaning of the results as a separate paragraph. Be concise."))
     
     
     
