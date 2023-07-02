@@ -17,8 +17,8 @@ def main():
             # Start the spinner
             api_key = st.text_input("Enter your OpenAPI Key Here...")
             with st.spinner("Running functions..."):
-                
                 openai.api_key = api_key
+                llm = OpenAI(model_name="text-davinci-003", openai_api_key=api_key)
                 textarea.write("authenticating...")
                 df=gc_auth()
                 textarea.write("Authenticated successfully...")
@@ -29,7 +29,7 @@ def main():
                     st.header(f"{classifier:}")
                     st.markdown(f"Accuracy: {accuracy:}")
                     st.markdown(f"AORC: {aorc:}")
-    llm = OpenAI(model_name="text-davinci-003", openai_api_key=api_key)
+    
     st.title("Summary of Results Incoming... Please Wait.")
     summaryarea=st.text("Summary Text",)
     summaryarea.write("This is a summary of the results...")
