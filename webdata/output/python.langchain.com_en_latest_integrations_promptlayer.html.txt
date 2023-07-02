@@ -1,0 +1,142 @@
+.md
+.pdf
+PromptLayer
+Contents
+Installation and Setup
+LLM
+Example
+Chat Model
+PromptLayer
+#
+PromptLayer
+is a devtool that allows you to track, manage, and share your GPT prompt engineering.
+It acts as a middleware between your code and OpenAI’s python library, recording all your API requests
+and saving relevant metadata for easy exploration and search in the
+PromptLayer
+dashboard.
+Installation and Setup
+#
+Install the
+promptlayer
+python library
+pip
+install
+promptlayer
+Create a PromptLayer account
+Create an api token and set it as an environment variable (
+PROMPTLAYER_API_KEY
+)
+LLM
+#
+from
+langchain.llms
+import
+PromptLayerOpenAI
+Example
+#
+To tag your requests, use the argument
+pl_tags
+when instantiating the LLM
+from
+langchain.llms
+import
+PromptLayerOpenAI
+llm
+=
+PromptLayerOpenAI
+(
+pl_tags
+=
+[
+"langchain-requests"
+,
+"chatbot"
+])
+To get the PromptLayer request id, use the argument
+return_pl_id
+when instantiating the LLM
+from
+langchain.llms
+import
+PromptLayerOpenAI
+llm
+=
+PromptLayerOpenAI
+(
+return_pl_id
+=
+True
+)
+This will add the PromptLayer request ID in the
+generation_info
+field of the
+Generation
+returned when using
+.generate
+or
+.agenerate
+For example:
+llm_results
+=
+llm
+.
+generate
+([
+"hello world"
+])
+for
+res
+in
+llm_results
+.
+generations
+:
+print
+(
+"pl request id: "
+,
+res
+[
+0
+]
+.
+generation_info
+[
+"pl_request_id"
+])
+You can use the PromptLayer request ID to add a prompt, score, or other metadata to your request.
+Read more about it here
+.
+This LLM is identical to the
+OpenAI LLM
+, except that
+all your requests will be logged to your PromptLayer account
+you can add
+pl_tags
+when instantiating to tag your requests on PromptLayer
+you can add
+return_pl_id
+when instantiating to return a PromptLayer request id to use
+while tracking requests
+.
+Chat Model
+#
+from
+langchain.chat_models
+import
+PromptLayerChatOpenAI
+See a
+usage example
+.
+previous
+Prediction Guard
+next
+Psychic
+Contents
+Installation and Setup
+LLM
+Example
+Chat Model
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

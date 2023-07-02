@@ -1,0 +1,85 @@
+.rst
+.pdf
+Docstore
+Docstore
+#
+Wrappers on top of docstores.
+class
+langchain.docstore.
+InMemoryDocstore
+(
+_dict
+:
+Dict
+[
+str
+,
+langchain.schema.Document
+]
+)
+[source]
+#
+Simple in memory docstore in the form of a dict.
+add
+(
+texts
+:
+Dict
+[
+str
+,
+langchain.schema.Document
+]
+)
+→
+None
+[source]
+#
+Add texts to in memory dictionary.
+search
+(
+search
+:
+str
+)
+→
+Union
+[
+str
+,
+langchain.schema.Document
+]
+[source]
+#
+Search via direct lookup.
+class
+langchain.docstore.
+Wikipedia
+[source]
+#
+Wrapper around wikipedia API.
+search
+(
+search
+:
+str
+)
+→
+Union
+[
+str
+,
+langchain.schema.Document
+]
+[source]
+#
+Try to search for wiki page.
+If page exists, return the page summary, and a PageWithLookups object.
+If page does not exist, return similar entries.
+previous
+Indexes
+next
+Text Splitter
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

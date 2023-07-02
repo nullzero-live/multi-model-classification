@@ -1,0 +1,43 @@
+.md
+.pdf
+Anyscale
+Contents
+Installation and Setup
+Wrappers
+LLM
+Anyscale
+#
+This page covers how to use the Anyscale ecosystem within LangChain.
+It is broken into two parts: installation and setup, and then references to specific Anyscale wrappers.
+Installation and Setup
+#
+Get an Anyscale Service URL, route and API key and set them as environment variables (
+ANYSCALE_SERVICE_URL
+,
+ANYSCALE_SERVICE_ROUTE
+,
+ANYSCALE_SERVICE_TOKEN
+).
+Please see
+the Anyscale docs
+for more details.
+Wrappers
+#
+LLM
+#
+There exists an Anyscale LLM wrapper, which you can access with
+from
+langchain.llms
+import
+Anyscale
+previous
+Anthropic
+next
+Apify
+Contents
+Installation and Setup
+Wrappers
+LLM
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

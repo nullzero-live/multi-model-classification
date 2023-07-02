@@ -1,0 +1,51 @@
+.rst
+.pdf
+Example Selectors
+Example Selectors
+#
+Note
+Conceptual Guide
+If you have a large number of examples, you may need to select which ones to include in the prompt. The ExampleSelector is the class responsible for doing so.
+The base interface is defined as below:
+class
+BaseExampleSelector
+(
+ABC
+):
+"""Interface for selecting examples to include in prompts."""
+@abstractmethod
+def
+select_examples
+(
+self
+,
+input_variables
+:
+Dict
+[
+str
+,
+str
+])
+->
+List
+[
+dict
+]:
+"""Select which examples to use based on the inputs."""
+The only method it needs to expose is a
+select_examples
+method. This takes in the input variables and then returns a list of examples. It is up to each specific implementation as to how those examples are selected. Let’s take a look at some below.
+See below for a list of example selectors.
+How to create a custom example selector
+LengthBased ExampleSelector
+Maximal Marginal Relevance ExampleSelector
+NGram Overlap ExampleSelector
+Similarity ExampleSelector
+previous
+Chat Prompt Templates
+next
+How to create a custom example selector
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

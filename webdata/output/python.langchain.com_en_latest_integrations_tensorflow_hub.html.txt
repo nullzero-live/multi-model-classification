@@ -1,0 +1,38 @@
+.md
+.pdf
+Tensorflow Hub
+Contents
+Installation and Setup
+Text Embedding Models
+Tensorflow Hub
+#
+TensorFlow Hub
+is a repository of trained machine learning models ready for fine-tuning and deployable anywhere.
+TensorFlow Hub
+lets you search and discover hundreds of trained, ready-to-deploy machine learning models in one place.
+Installation and Setup
+#
+pip
+install
+tensorflow-hub
+pip
+install
+tensorflow_text
+Text Embedding Models
+#
+See a
+usage example
+from
+langchain.embeddings
+import
+TensorflowHubEmbeddings
+previous
+Telegram
+next
+2Markdown
+Contents
+Installation and Setup
+Text Embedding Models
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

@@ -1,0 +1,46 @@
+.md
+.pdf
+Notion DB
+Contents
+Installation and Setup
+Document Loader
+Notion DB
+#
+Notion
+is a collaboration platform with modified Markdown support that integrates kanban
+boards, tasks, wikis and databases. It is an all-in-one workspace for notetaking, knowledge and data management,
+and project and task management.
+Installation and Setup
+#
+All instructions are in examples below.
+Document Loader
+#
+We have two different loaders:
+NotionDirectoryLoader
+and
+NotionDBLoader
+.
+See a
+usage example for the NotionDirectoryLoader
+.
+from
+langchain.document_loaders
+import
+NotionDirectoryLoader
+See a
+usage example for the NotionDBLoader
+.
+from
+langchain.document_loaders
+import
+NotionDBLoader
+previous
+NLPCloud
+next
+Obsidian
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

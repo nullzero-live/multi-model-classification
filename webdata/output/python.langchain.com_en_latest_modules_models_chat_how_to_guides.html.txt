@@ -1,0 +1,15 @@
+.rst
+.pdf
+How-To Guides
+How-To Guides
+#
+The examples here all address certain “how-to” guides for working with chat models.
+How to use few shot examples
+How to stream responses
+previous
+Getting Started
+next
+How to use few shot examples
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

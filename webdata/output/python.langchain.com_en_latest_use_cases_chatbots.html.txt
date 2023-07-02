@@ -1,0 +1,35 @@
+.md
+.pdf
+Chatbots
+Chatbots
+#
+Conceptual Guide
+Since language models are good at producing text, that makes them ideal for creating chatbots.
+Aside from the base prompts/LLMs, an important concept to know for Chatbots is
+memory
+.
+Most chat based applications rely on remembering what happened in previous interactions, which
+memory
+is designed to help with.
+The following resources exist:
+ChatGPT Clone
+: A notebook walking through how to recreate a ChatGPT-like experience with LangChain.
+Conversation Memory
+: A notebook walking through how to use different types of conversational memory.
+Conversation Agent
+: A notebook walking through how to create an agent optimized for conversation.
+Additional related resources include:
+Memory Key Concepts
+: Explanation of key concepts related to memory.
+Memory Examples
+: A collection of how-to examples for working with memory.
+More end-to-end examples include:
+Voice Assistant
+: A notebook walking through how to create a voice assistant using LangChain.
+previous
+Question Answering over Docs
+next
+Querying Tabular Data
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

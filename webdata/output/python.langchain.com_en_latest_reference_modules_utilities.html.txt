@@ -1,0 +1,2728 @@
+.rst
+.pdf
+Utilities
+Utilities
+#
+General utilities.
+pydantic
+model
+langchain.utilities.
+ApifyWrapper
+[source]
+#
+Wrapper around Apify.
+To use, you should have the
+apify-client
+python package installed,
+and the environment variable
+APIFY_API_TOKEN
+set with your API key, or pass
+apify_api_token
+as a named parameter to the constructor.
+field
+apify_client
+:
+Any
+=
+None
+#
+field
+apify_client_async
+:
+Any
+=
+None
+#
+async
+acall_actor
+(
+actor_id
+:
+str
+,
+run_input
+:
+Dict
+,
+dataset_mapping_function
+:
+Callable
+[
+[
+Dict
+]
+,
+langchain.schema.Document
+]
+,
+*
+,
+build
+:
+Optional
+[
+str
+]
+=
+None
+,
+memory_mbytes
+:
+Optional
+[
+int
+]
+=
+None
+,
+timeout_secs
+:
+Optional
+[
+int
+]
+=
+None
+)
+→
+langchain.document_loaders.apify_dataset.ApifyDatasetLoader
+[source]
+#
+Run an Actor on the Apify platform and wait for results to be ready.
+Parameters
+actor_id
+(
+str
+) – The ID or name of the Actor on the Apify platform.
+run_input
+(
+Dict
+) – The input object of the Actor that you’re trying to run.
+dataset_mapping_function
+(
+Callable
+) – A function that takes a single
+dictionary (an Apify dataset item) and converts it to
+an instance of the Document class.
+build
+(
+str
+,
+optional
+) – Optionally specifies the actor build to run.
+It can be either a build tag or build number.
+memory_mbytes
+(
+int
+,
+optional
+) – Optional memory limit for the run,
+in megabytes.
+timeout_secs
+(
+int
+,
+optional
+) – Optional timeout for the run, in seconds.
+Returns
+A loader that will fetch the records from the
+Actor run’s default dataset.
+Return type
+ApifyDatasetLoader
+call_actor
+(
+actor_id
+:
+str
+,
+run_input
+:
+Dict
+,
+dataset_mapping_function
+:
+Callable
+[
+[
+Dict
+]
+,
+langchain.schema.Document
+]
+,
+*
+,
+build
+:
+Optional
+[
+str
+]
+=
+None
+,
+memory_mbytes
+:
+Optional
+[
+int
+]
+=
+None
+,
+timeout_secs
+:
+Optional
+[
+int
+]
+=
+None
+)
+→
+langchain.document_loaders.apify_dataset.ApifyDatasetLoader
+[source]
+#
+Run an Actor on the Apify platform and wait for results to be ready.
+Parameters
+actor_id
+(
+str
+) – The ID or name of the Actor on the Apify platform.
+run_input
+(
+Dict
+) – The input object of the Actor that you’re trying to run.
+dataset_mapping_function
+(
+Callable
+) – A function that takes a single
+dictionary (an Apify dataset item) and converts it to an
+instance of the Document class.
+build
+(
+str
+,
+optional
+) – Optionally specifies the actor build to run.
+It can be either a build tag or build number.
+memory_mbytes
+(
+int
+,
+optional
+) – Optional memory limit for the run,
+in megabytes.
+timeout_secs
+(
+int
+,
+optional
+) – Optional timeout for the run, in seconds.
+Returns
+A loader that will fetch the records from the
+Actor run’s default dataset.
+Return type
+ApifyDatasetLoader
+pydantic
+model
+langchain.utilities.
+ArxivAPIWrapper
+[source]
+#
+Wrapper around ArxivAPI.
+To use, you should have the
+arxiv
+python package installed.
+https://lukasschwab.me/arxiv.py/index.html
+This wrapper will use the Arxiv API to conduct searches and
+fetch document summaries. By default, it will return the document summaries
+of the top-k results.
+It limits the Document content by doc_content_chars_max.
+Set doc_content_chars_max=None if you don’t want to limit the content size.
+Parameters
+top_k_results
+– number of the top-scored document used for the arxiv tool
+ARXIV_MAX_QUERY_LENGTH
+– the cut limit on the query used for the arxiv tool.
+load_max_docs
+– a limit to the number of loaded documents
+load_all_available_meta
+–
+if True: the
+metadata
+of the loaded Documents gets all available meta info
+(see
+https://lukasschwab.me/arxiv.py/index.html#Result
+),
+if False: the
+metadata
+gets only the most informative fields.
+field
+arxiv_exceptions
+:
+Any
+=
+None
+#
+field
+doc_content_chars_max
+:
+int
+=
+4000
+#
+field
+load_all_available_meta
+:
+bool
+=
+False
+#
+field
+load_max_docs
+:
+int
+=
+100
+#
+field
+top_k_results
+:
+int
+=
+3
+#
+load
+(
+query
+:
+str
+)
+→
+List
+[
+langchain.schema.Document
+]
+[source]
+#
+Run Arxiv search and get the article texts plus the article meta information.
+See
+https://lukasschwab.me/arxiv.py/index.html#Search
+Returns: a list of documents with the document.page_content in text format
+run
+(
+query
+:
+str
+)
+→
+str
+[source]
+#
+Run Arxiv search and get the article meta information.
+See
+https://lukasschwab.me/arxiv.py/index.html#Search
+See
+https://lukasschwab.me/arxiv.py/index.html#Result
+It uses only the most informative fields of article meta information.
+class
+langchain.utilities.
+BashProcess
+(
+strip_newlines
+:
+bool
+=
+False
+,
+return_err_output
+:
+bool
+=
+False
+,
+persistent
+:
+bool
+=
+False
+)
+[source]
+#
+Executes bash commands and returns the output.
+process_output
+(
+output
+:
+str
+,
+command
+:
+str
+)
+→
+str
+[source]
+#
+run
+(
+commands
+:
+Union
+[
+str
+,
+List
+[
+str
+]
+]
+)
+→
+str
+[source]
+#
+Run commands and return final output.
+pydantic
+model
+langchain.utilities.
+BingSearchAPIWrapper
+[source]
+#
+Wrapper for Bing Search API.
+In order to set this up, follow instructions at:
+https://levelup.gitconnected.com/api-tutorial-how-to-use-bing-web-search-api-in-python-4165d5592a7e
+field
+bing_search_url
+:
+str
+[Required]
+#
+field
+bing_subscription_key
+:
+str
+[Required]
+#
+field
+k
+:
+int
+=
+10
+#
+results
+(
+query
+:
+str
+,
+num_results
+:
+int
+)
+→
+List
+[
+Dict
+]
+[source]
+#
+Run query through BingSearch and return metadata.
+Parameters
+query
+– The query to search for.
+num_results
+– The number of results to return.
+Returns
+snippet - The description of the result.
+title - The title of the result.
+link - The link to the result.
+Return type
+A list of dictionaries with the following keys
+run
+(
+query
+:
+str
+)
+→
+str
+[source]
+#
+Run query through BingSearch and parse result.
+pydantic
+model
+langchain.utilities.
+DuckDuckGoSearchAPIWrapper
+[source]
+#
+Wrapper for DuckDuckGo Search API.
+Free and does not require any setup
+field
+k
+:
+int
+=
+10
+#
+field
+max_results
+:
+int
+=
+5
+#
+field
+region
+:
+Optional
+[
+str
+]
+=
+'wt-wt'
+#
+field
+safesearch
+:
+str
+=
+'moderate'
+#
+field
+time
+:
+Optional
+[
+str
+]
+=
+'y'
+#
+get_snippets
+(
+query
+:
+str
+)
+→
+List
+[
+str
+]
+[source]
+#
+Run query through DuckDuckGo and return concatenated results.
+results
+(
+query
+:
+str
+,
+num_results
+:
+int
+)
+→
+List
+[
+Dict
+[
+str
+,
+str
+]
+]
+[source]
+#
+Run query through DuckDuckGo and return metadata.
+Parameters
+query
+– The query to search for.
+num_results
+– The number of results to return.
+Returns
+snippet - The description of the result.
+title - The title of the result.
+link - The link to the result.
+Return type
+A list of dictionaries with the following keys
+run
+(
+query
+:
+str
+)
+→
+str
+[source]
+#
+pydantic
+model
+langchain.utilities.
+GooglePlacesAPIWrapper
+[source]
+#
+Wrapper around Google Places API.
+To use, you should have the
+googlemaps
+python package installed,
+an API key for the google maps platform
+,
+and the enviroment variable ‘’GPLACES_API_KEY’’
+set with your API key , or pass ‘gplaces_api_key’
+as a named parameter to the constructor.
+By default, this will return the all the results on the input query.
+You can use the top_k_results argument to limit the number of results.
+Example
+from
+langchain
+import
+GooglePlacesAPIWrapper
+gplaceapi
+=
+GooglePlacesAPIWrapper
+()
+field
+gplaces_api_key
+:
+Optional
+[
+str
+]
+=
+None
+#
+field
+top_k_results
+:
+Optional
+[
+int
+]
+=
+None
+#
+fetch_place_details
+(
+place_id
+:
+str
+)
+→
+Optional
+[
+str
+]
+[source]
+#
+format_place_details
+(
+place_details
+:
+Dict
+[
+str
+,
+Any
+]
+)
+→
+Optional
+[
+str
+]
+[source]
+#
+run
+(
+query
+:
+str
+)
+→
+str
+[source]
+#
+Run Places search and get k number of places that exists that match.
+pydantic
+model
+langchain.utilities.
+GoogleSearchAPIWrapper
+[source]
+#
+Wrapper for Google Search API.
+Adapted from: Instructions adapted from
+https://stackoverflow.com/questions/
+37083058/
+programmatically-searching-google-in-python-using-custom-search
+TODO: DOCS for using it
+1. Install google-api-python-client
+- If you don’t already have a Google account, sign up.
+- If you have never created a Google APIs Console project,
+read the Managing Projects page and create a project in the Google API Console.
+- Install the library using pip install google-api-python-client
+The current version of the library is 2.70.0 at this time
+2. To create an API key:
+- Navigate to the APIs & Services→Credentials panel in Cloud Console.
+- Select Create credentials, then select API key from the drop-down menu.
+- The API key created dialog box displays your newly created key.
+- You now have an API_KEY
+3. Setup Custom Search Engine so you can search the entire web
+- Create a custom search engine in this link.
+- In Sites to search, add any valid URL (i.e. www.stackoverflow.com).
+- That’s all you have to fill up, the rest doesn’t matter.
+In the left-side menu, click Edit search engine → {your search engine name}
+→ Setup Set Search the entire web to ON. Remove the URL you added from
+the list of Sites to search.
+- Under Search engine ID you’ll find the search-engine-ID.
+4. Enable the Custom Search API
+- Navigate to the APIs & Services→Dashboard panel in Cloud Console.
+- Click Enable APIs and Services.
+- Search for Custom Search API and click on it.
+- Click Enable.
+URL for it:
+https://console.cloud.google.com/apis/library/customsearch.googleapis
+.com
+field
+google_api_key
+:
+Optional
+[
+str
+]
+=
+None
+#
+field
+google_cse_id
+:
+Optional
+[
+str
+]
+=
+None
+#
+field
+k
+:
+int
+=
+10
+#
+field
+siterestrict
+:
+bool
+=
+False
+#
+results
+(
+query
+:
+str
+,
+num_results
+:
+int
+)
+→
+List
+[
+Dict
+]
+[source]
+#
+Run query through GoogleSearch and return metadata.
+Parameters
+query
+– The query to search for.
+num_results
+– The number of results to return.
+Returns
+snippet - The description of the result.
+title - The title of the result.
+link - The link to the result.
+Return type
+A list of dictionaries with the following keys
+run
+(
+query
+:
+str
+)
+→
+str
+[source]
+#
+Run query through GoogleSearch and parse result.
+pydantic
+model
+langchain.utilities.
+GoogleSerperAPIWrapper
+[source]
+#
+Wrapper around the Serper.dev Google Search API.
+You can create a free API key at
+https://serper.dev
+.
+To use, you should have the environment variable
+SERPER_API_KEY
+set with your API key, or pass
+serper_api_key
+as a named parameter
+to the constructor.
+Example
+from
+langchain
+import
+GoogleSerperAPIWrapper
+google_serper
+=
+GoogleSerperAPIWrapper
+()
+field
+aiosession
+:
+Optional
+[
+aiohttp.client.ClientSession
+]
+=
+None
+#
+field
+gl
+:
+str
+=
+'us'
+#
+field
+hl
+:
+str
+=
+'en'
+#
+field
+k
+:
+int
+=
+10
+#
+field
+serper_api_key
+:
+Optional
+[
+str
+]
+=
+None
+#
+field
+tbs
+:
+Optional
+[
+str
+]
+=
+None
+#
+field
+type
+:
+Literal
+[
+'news'
+,
+'search'
+,
+'places'
+,
+'images'
+]
+=
+'search'
+#
+async
+aresults
+(
+query
+:
+str
+,
+**
+kwargs
+:
+Any
+)
+→
+Dict
+[source]
+#
+Run query through GoogleSearch.
+async
+arun
+(
+query
+:
+str
+,
+**
+kwargs
+:
+Any
+)
+→
+str
+[source]
+#
+Run query through GoogleSearch and parse result async.
+results
+(
+query
+:
+str
+,
+**
+kwargs
+:
+Any
+)
+→
+Dict
+[source]
+#
+Run query through GoogleSearch.
+run
+(
+query
+:
+str
+,
+**
+kwargs
+:
+Any
+)
+→
+str
+[source]
+#
+Run query through GoogleSearch and parse result.
+pydantic
+model
+langchain.utilities.
+GraphQLAPIWrapper
+[source]
+#
+Wrapper around GraphQL API.
+To use, you should have the
+gql
+python package installed.
+This wrapper will use the GraphQL API to conduct queries.
+field
+custom_headers
+:
+Optional
+[
+Dict
+[
+str
+,
+str
+]
+]
+=
+None
+#
+field
+graphql_endpoint
+:
+str
+[Required]
+#
+run
+(
+query
+:
+str
+)
+→
+str
+[source]
+#
+Run a GraphQL query and get the results.
+pydantic
+model
+langchain.utilities.
+LambdaWrapper
+[source]
+#
+Wrapper for AWS Lambda SDK.
+Docs for using:
+pip install boto3
+Create a lambda function using the AWS Console or CLI
+Run
+aws configure
+and enter your AWS credentials
+field
+awslambda_tool_description
+:
+Optional
+[
+str
+]
+=
+None
+#
+field
+awslambda_tool_name
+:
+Optional
+[
+str
+]
+=
+None
+#
+field
+function_name
+:
+Optional
+[
+str
+]
+=
+None
+#
+run
+(
+query
+:
+str
+)
+→
+str
+[source]
+#
+Invoke Lambda function and parse result.
+pydantic
+model
+langchain.utilities.
+MetaphorSearchAPIWrapper
+[source]
+#
+Wrapper for Metaphor Search API.
+field
+k
+:
+int
+=
+10
+#
+field
+metaphor_api_key
+:
+str
+[Required]
+#
+results
+(
+query
+:
+str
+,
+num_results
+:
+int
+)
+→
+List
+[
+Dict
+]
+[source]
+#
+Run query through Metaphor Search and return metadata.
+Parameters
+query
+– The query to search for.
+num_results
+– The number of results to return.
+Returns
+title - The title of the
+url - The url
+author - Author of the content, if applicable. Otherwise, None.
+date_created - Estimated date created,
+in YYYY-MM-DD format. Otherwise, None.
+Return type
+A list of dictionaries with the following keys
+async
+results_async
+(
+query
+:
+str
+,
+num_results
+:
+int
+)
+→
+List
+[
+Dict
+]
+[source]
+#
+Get results from the Metaphor Search API asynchronously.
+pydantic
+model
+langchain.utilities.
+OpenWeatherMapAPIWrapper
+[source]
+#
+Wrapper for OpenWeatherMap API using PyOWM.
+Docs for using:
+Go to OpenWeatherMap and sign up for an API key
+Save your API KEY into OPENWEATHERMAP_API_KEY env variable
+pip install pyowm
+field
+openweathermap_api_key
+:
+Optional
+[
+str
+]
+=
+None
+#
+field
+owm
+:
+Any
+=
+None
+#
+run
+(
+location
+:
+str
+)
+→
+str
+[source]
+#
+Get the current weather information for a specified location.
+pydantic
+model
+langchain.utilities.
+PowerBIDataset
+[source]
+#
+Create PowerBI engine from dataset ID and credential or token.
+Use either the credential or a supplied token to authenticate.
+If both are supplied the credential is used to generate a token.
+The impersonated_user_name is the UPN of a user to be impersonated.
+If the model is not RLS enabled, this will be ignored.
+Validators
+fix_table_names
+»
+table_names
+token_or_credential_present
+»
+all
+fields
+field
+aiosession
+:
+Optional
+[
+aiohttp.ClientSession
+]
+=
+None
+#
+field
+credential
+:
+Optional
+[
+TokenCredential
+]
+=
+None
+#
+field
+dataset_id
+:
+str
+[Required]
+#
+field
+group_id
+:
+Optional
+[
+str
+]
+=
+None
+#
+field
+impersonated_user_name
+:
+Optional
+[
+str
+]
+=
+None
+#
+field
+sample_rows_in_table_info
+:
+int
+=
+1
+#
+Constraints
+exclusiveMinimum
+= 0
+maximum
+= 10
+field
+schemas
+:
+Dict
+[
+str
+,
+str
+]
+[Optional]
+#
+field
+table_names
+:
+List
+[
+str
+]
+[Required]
+#
+field
+token
+:
+Optional
+[
+str
+]
+=
+None
+#
+async
+aget_table_info
+(
+table_names
+:
+Optional
+[
+Union
+[
+List
+[
+str
+]
+,
+str
+]
+]
+=
+None
+)
+→
+str
+[source]
+#
+Get information about specified tables.
+async
+arun
+(
+command
+:
+str
+)
+→
+Any
+[source]
+#
+Execute a DAX command and return the result asynchronously.
+get_schemas
+(
+)
+→
+str
+[source]
+#
+Get the available schema’s.
+get_table_info
+(
+table_names
+:
+Optional
+[
+Union
+[
+List
+[
+str
+]
+,
+str
+]
+]
+=
+None
+)
+→
+str
+[source]
+#
+Get information about specified tables.
+get_table_names
+(
+)
+→
+Iterable
+[
+str
+]
+[source]
+#
+Get names of tables available.
+run
+(
+command
+:
+str
+)
+→
+Any
+[source]
+#
+Execute a DAX command and return a json representing the results.
+property
+headers
+:
+Dict
+[
+str
+,
+str
+]
+#
+Get the token.
+property
+request_url
+:
+str
+#
+Get the request url.
+property
+table_info
+:
+str
+#
+Information about all tables in the database.
+pydantic
+model
+langchain.utilities.
+PubMedAPIWrapper
+[source]
+#
+Wrapper around PubMed API.
+This wrapper will use the PubMed API to conduct searches and fetch
+document summaries. By default, it will return the document summaries
+of the top-k results of an input search.
+Parameters
+top_k_results
+– number of the top-scored document used for the PubMed tool
+load_max_docs
+– a limit to the number of loaded documents
+load_all_available_meta
+–
+if True: the
+metadata
+of the loaded Documents gets all available meta info
+(see
+https://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.ESearch
+)
+if False: the
+metadata
+gets only the most informative fields.
+field
+doc_content_chars_max
+:
+int
+=
+2000
+#
+field
+email
+:
+str
+=
+'your_email@example.com'
+#
+field
+load_all_available_meta
+:
+bool
+=
+False
+#
+field
+load_max_docs
+:
+int
+=
+25
+#
+field
+top_k_results
+:
+int
+=
+3
+#
+load
+(
+query
+:
+str
+)
+→
+List
+[
+dict
+]
+[source]
+#
+Search PubMed for documents matching the query.
+Return a list of dictionaries containing the document metadata.
+load_docs
+(
+query
+:
+str
+)
+→
+List
+[
+langchain.schema.Document
+]
+[source]
+#
+retrieve_article
+(
+uid
+:
+str
+,
+webenv
+:
+str
+)
+→
+dict
+[source]
+#
+run
+(
+query
+:
+str
+)
+→
+str
+[source]
+#
+Run PubMed search and get the article meta information.
+See
+https://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.ESearch
+It uses only the most informative fields of article meta information.
+pydantic
+model
+langchain.utilities.
+PythonREPL
+[source]
+#
+Simulates a standalone Python REPL.
+field
+globals
+:
+Optional
+[
+Dict
+]
+[Optional]
+(alias
+'_globals')
+#
+field
+locals
+:
+Optional
+[
+Dict
+]
+[Optional]
+(alias
+'_locals')
+#
+run
+(
+command
+:
+str
+)
+→
+str
+[source]
+#
+Run command with own globals/locals and returns anything printed.
+pydantic
+model
+langchain.utilities.
+SearxSearchWrapper
+[source]
+#
+Wrapper for Searx API.
+To use you need to provide the searx host by passing the named parameter
+searx_host
+or exporting the environment variable
+SEARX_HOST
+.
+In some situations you might want to disable SSL verification, for example
+if you are running searx locally. You can do this by passing the named parameter
+unsecure
+. You can also pass the host url scheme as
+http
+to disable SSL.
+Example
+from
+langchain.utilities
+import
+SearxSearchWrapper
+searx
+=
+SearxSearchWrapper
+(
+searx_host
+=
+"http://localhost:8888"
+)
+Example with SSL disabled:
+from
+langchain.utilities
+import
+SearxSearchWrapper
+# note the unsecure parameter is not needed if you pass the url scheme as
+# http
+searx
+=
+SearxSearchWrapper
+(
+searx_host
+=
+"http://localhost:8888"
+,
+unsecure
+=
+True
+)
+Validators
+disable_ssl_warnings
+»
+unsecure
+validate_params
+»
+all
+fields
+field
+aiosession
+:
+Optional
+[
+Any
+]
+=
+None
+#
+field
+categories
+:
+Optional
+[
+List
+[
+str
+]
+]
+=
+[]
+#
+field
+engines
+:
+Optional
+[
+List
+[
+str
+]
+]
+=
+[]
+#
+field
+headers
+:
+Optional
+[
+dict
+]
+=
+None
+#
+field
+k
+:
+int
+=
+10
+#
+field
+params
+:
+dict
+[Optional]
+#
+field
+query_suffix
+:
+Optional
+[
+str
+]
+=
+''
+#
+field
+searx_host
+:
+str
+=
+''
+#
+field
+unsecure
+:
+bool
+=
+False
+#
+async
+aresults
+(
+query
+:
+str
+,
+num_results
+:
+int
+,
+engines
+:
+Optional
+[
+List
+[
+str
+]
+]
+=
+None
+,
+query_suffix
+:
+Optional
+[
+str
+]
+=
+''
+,
+**
+kwargs
+:
+Any
+)
+→
+List
+[
+Dict
+]
+[source]
+#
+Asynchronously query with json results.
+Uses aiohttp. See
+results
+for more info.
+async
+arun
+(
+query
+:
+str
+,
+engines
+:
+Optional
+[
+List
+[
+str
+]
+]
+=
+None
+,
+query_suffix
+:
+Optional
+[
+str
+]
+=
+''
+,
+**
+kwargs
+:
+Any
+)
+→
+str
+[source]
+#
+Asynchronously version of
+run
+.
+results
+(
+query
+:
+str
+,
+num_results
+:
+int
+,
+engines
+:
+Optional
+[
+List
+[
+str
+]
+]
+=
+None
+,
+categories
+:
+Optional
+[
+List
+[
+str
+]
+]
+=
+None
+,
+query_suffix
+:
+Optional
+[
+str
+]
+=
+''
+,
+**
+kwargs
+:
+Any
+)
+→
+List
+[
+Dict
+]
+[source]
+#
+Run query through Searx API and returns the results with metadata.
+Parameters
+query
+– The query to search for.
+query_suffix
+– Extra suffix appended to the query.
+num_results
+– Limit the number of results to return.
+engines
+– List of engines to use for the query.
+categories
+– List of categories to use for the query.
+**kwargs
+– extra parameters to pass to the searx API.
+Returns
+{
+snippet:  The description of the result.
+title:  The title of the result.
+link: The link to the result.
+engines: The engines used for the result.
+category: Searx category of the result.
+}
+Return type
+Dict with the following keys
+run
+(
+query
+:
+str
+,
+engines
+:
+Optional
+[
+List
+[
+str
+]
+]
+=
+None
+,
+categories
+:
+Optional
+[
+List
+[
+str
+]
+]
+=
+None
+,
+query_suffix
+:
+Optional
+[
+str
+]
+=
+''
+,
+**
+kwargs
+:
+Any
+)
+→
+str
+[source]
+#
+Run query through Searx API and parse results.
+You can pass any other params to the searx query API.
+Parameters
+query
+– The query to search for.
+query_suffix
+– Extra suffix appended to the query.
+engines
+– List of engines to use for the query.
+categories
+– List of categories to use for the query.
+**kwargs
+– extra parameters to pass to the searx API.
+Returns
+The result of the query.
+Return type
+str
+Raises
+ValueError
+– If an error occured with the query.
+Example
+This will make a query to the qwant engine:
+from
+langchain.utilities
+import
+SearxSearchWrapper
+searx
+=
+SearxSearchWrapper
+(
+searx_host
+=
+"http://my.searx.host"
+)
+searx
+.
+run
+(
+"what is the weather in France ?"
+,
+engine
+=
+"qwant"
+)
+# the same result can be achieved using the `!` syntax of searx
+# to select the engine using `query_suffix`
+searx
+.
+run
+(
+"what is the weather in France ?"
+,
+query_suffix
+=
+"!qwant"
+)
+pydantic
+model
+langchain.utilities.
+SerpAPIWrapper
+[source]
+#
+Wrapper around SerpAPI.
+To use, you should have the
+google-search-results
+python package installed,
+and the environment variable
+SERPAPI_API_KEY
+set with your API key, or pass
+serpapi_api_key
+as a named parameter to the constructor.
+Example
+from
+langchain
+import
+SerpAPIWrapper
+serpapi
+=
+SerpAPIWrapper
+()
+field
+aiosession
+:
+Optional
+[
+aiohttp.client.ClientSession
+]
+=
+None
+#
+field
+params
+:
+dict
+=
+{'engine':
+'google',
+'gl':
+'us',
+'google_domain':
+'google.com',
+'hl':
+'en'}
+#
+field
+serpapi_api_key
+:
+Optional
+[
+str
+]
+=
+None
+#
+async
+aresults
+(
+query
+:
+str
+)
+→
+dict
+[source]
+#
+Use aiohttp to run query through SerpAPI and return the results async.
+async
+arun
+(
+query
+:
+str
+,
+**
+kwargs
+:
+Any
+)
+→
+str
+[source]
+#
+Run query through SerpAPI and parse result async.
+get_params
+(
+query
+:
+str
+)
+→
+Dict
+[
+str
+,
+str
+]
+[source]
+#
+Get parameters for SerpAPI.
+results
+(
+query
+:
+str
+)
+→
+dict
+[source]
+#
+Run query through SerpAPI and return the raw result.
+run
+(
+query
+:
+str
+,
+**
+kwargs
+:
+Any
+)
+→
+str
+[source]
+#
+Run query through SerpAPI and parse result.
+class
+langchain.utilities.
+SparkSQL
+(
+spark_session
+:
+Optional
+[
+SparkSession
+]
+=
+None
+,
+catalog
+:
+Optional
+[
+str
+]
+=
+None
+,
+schema
+:
+Optional
+[
+str
+]
+=
+None
+,
+ignore_tables
+:
+Optional
+[
+List
+[
+str
+]
+]
+=
+None
+,
+include_tables
+:
+Optional
+[
+List
+[
+str
+]
+]
+=
+None
+,
+sample_rows_in_table_info
+:
+int
+=
+3
+)
+[source]
+#
+classmethod
+from_uri
+(
+database_uri
+:
+str
+,
+engine_args
+:
+Optional
+[
+dict
+]
+=
+None
+,
+**
+kwargs
+:
+Any
+)
+→
+langchain.utilities.spark_sql.SparkSQL
+[source]
+#
+Creating a remote Spark Session via Spark connect.
+For example: SparkSQL.from_uri(“sc://localhost:15002”)
+get_table_info
+(
+table_names
+:
+Optional
+[
+List
+[
+str
+]
+]
+=
+None
+)
+→
+str
+[source]
+#
+get_table_info_no_throw
+(
+table_names
+:
+Optional
+[
+List
+[
+str
+]
+]
+=
+None
+)
+→
+str
+[source]
+#
+Get information about specified tables.
+Follows best practices as specified in: Rajkumar et al, 2022
+(
+https://arxiv.org/abs/2204.00498
+)
+If
+sample_rows_in_table_info
+, the specified number of sample rows will be
+appended to each table description. This can increase performance as
+demonstrated in the paper.
+get_usable_table_names
+(
+)
+→
+Iterable
+[
+str
+]
+[source]
+#
+Get names of tables available.
+run
+(
+command
+:
+str
+,
+fetch
+:
+str
+=
+'all'
+)
+→
+str
+[source]
+#
+run_no_throw
+(
+command
+:
+str
+,
+fetch
+:
+str
+=
+'all'
+)
+→
+str
+[source]
+#
+Execute a SQL command and return a string representing the results.
+If the statement returns rows, a string of the results is returned.
+If the statement returns no rows, an empty string is returned.
+If the statement throws an error, the error message is returned.
+pydantic
+model
+langchain.utilities.
+TextRequestsWrapper
+[source]
+#
+Lightweight wrapper around requests library.
+The main purpose of this wrapper is to always return a text output.
+field
+aiosession
+:
+Optional
+[
+aiohttp.client.ClientSession
+]
+=
+None
+#
+field
+headers
+:
+Optional
+[
+Dict
+[
+str
+,
+str
+]
+]
+=
+None
+#
+async
+adelete
+(
+url
+:
+str
+,
+**
+kwargs
+:
+Any
+)
+→
+str
+[source]
+#
+DELETE the URL and return the text asynchronously.
+async
+aget
+(
+url
+:
+str
+,
+**
+kwargs
+:
+Any
+)
+→
+str
+[source]
+#
+GET the URL and return the text asynchronously.
+async
+apatch
+(
+url
+:
+str
+,
+data
+:
+Dict
+[
+str
+,
+Any
+]
+,
+**
+kwargs
+:
+Any
+)
+→
+str
+[source]
+#
+PATCH the URL and return the text asynchronously.
+async
+apost
+(
+url
+:
+str
+,
+data
+:
+Dict
+[
+str
+,
+Any
+]
+,
+**
+kwargs
+:
+Any
+)
+→
+str
+[source]
+#
+POST to the URL and return the text asynchronously.
+async
+aput
+(
+url
+:
+str
+,
+data
+:
+Dict
+[
+str
+,
+Any
+]
+,
+**
+kwargs
+:
+Any
+)
+→
+str
+[source]
+#
+PUT the URL and return the text asynchronously.
+delete
+(
+url
+:
+str
+,
+**
+kwargs
+:
+Any
+)
+→
+str
+[source]
+#
+DELETE the URL and return the text.
+get
+(
+url
+:
+str
+,
+**
+kwargs
+:
+Any
+)
+→
+str
+[source]
+#
+GET the URL and return the text.
+patch
+(
+url
+:
+str
+,
+data
+:
+Dict
+[
+str
+,
+Any
+]
+,
+**
+kwargs
+:
+Any
+)
+→
+str
+[source]
+#
+PATCH the URL and return the text.
+post
+(
+url
+:
+str
+,
+data
+:
+Dict
+[
+str
+,
+Any
+]
+,
+**
+kwargs
+:
+Any
+)
+→
+str
+[source]
+#
+POST to the URL and return the text.
+put
+(
+url
+:
+str
+,
+data
+:
+Dict
+[
+str
+,
+Any
+]
+,
+**
+kwargs
+:
+Any
+)
+→
+str
+[source]
+#
+PUT the URL and return the text.
+property
+requests
+:
+langchain.requests.Requests
+#
+pydantic
+model
+langchain.utilities.
+TwilioAPIWrapper
+[source]
+#
+Sms Client using Twilio.
+To use, you should have the
+twilio
+python package installed,
+and the environment variables
+TWILIO_ACCOUNT_SID
+,
+TWILIO_AUTH_TOKEN
+, and
+TWILIO_FROM_NUMBER
+, or pass
+account_sid
+,
+auth_token
+, and
+from_number
+as
+named parameters to the constructor.
+Example
+from
+langchain.utilities.twilio
+import
+TwilioAPIWrapper
+twilio
+=
+TwilioAPIWrapper
+(
+account_sid
+=
+"ACxxx"
+,
+auth_token
+=
+"xxx"
+,
+from_number
+=
+"+10123456789"
+)
+twilio
+.
+run
+(
+'test'
+,
+'+12484345508'
+)
+field
+account_sid
+:
+Optional
+[
+str
+]
+=
+None
+#
+Twilio account string identifier.
+field
+auth_token
+:
+Optional
+[
+str
+]
+=
+None
+#
+Twilio auth token.
+field
+from_number
+:
+Optional
+[
+str
+]
+=
+None
+#
+A Twilio phone number in [E.164](
+https://www.twilio.com/docs/glossary/what-e164
+)
+format, an
+[alphanumeric sender ID](
+https://www.twilio.com/docs/sms/send-messages#use-an-alphanumeric-sender-id
+),
+or a [Channel Endpoint address](
+https://www.twilio.com/docs/sms/channels#channel-addresses
+)
+that is enabled for the type of message you want to send. Phone numbers or
+[short codes](
+https://www.twilio.com/docs/sms/api/short-code
+) purchased from
+Twilio also work here. You cannot, for example, spoof messages from a private
+cell phone number. If you are using
+messaging_service_sid
+, this parameter
+must be empty.
+run
+(
+body
+:
+str
+,
+to
+:
+str
+)
+→
+str
+[source]
+#
+Run body through Twilio and respond with message sid.
+Parameters
+body
+– The text of the message you want to send. Can be up to 1,600
+characters in length.
+to
+– The destination phone number in
+[E.164](
+https://www.twilio.com/docs/glossary/what-e164
+) format for
+SMS/MMS or
+[Channel user address](
+https://www.twilio.com/docs/sms/channels#channel-addresses
+)
+for other 3rd-party channels.
+pydantic
+model
+langchain.utilities.
+WikipediaAPIWrapper
+[source]
+#
+Wrapper around WikipediaAPI.
+To use, you should have the
+wikipedia
+python package installed.
+This wrapper will use the Wikipedia API to conduct searches and
+fetch page summaries. By default, it will return the page summaries
+of the top-k results.
+It limits the Document content by doc_content_chars_max.
+field
+doc_content_chars_max
+:
+int
+=
+4000
+#
+field
+lang
+:
+str
+=
+'en'
+#
+field
+load_all_available_meta
+:
+bool
+=
+False
+#
+field
+top_k_results
+:
+int
+=
+3
+#
+load
+(
+query
+:
+str
+)
+→
+List
+[
+langchain.schema.Document
+]
+[source]
+#
+Run Wikipedia search and get the article text plus the meta information.
+See
+Returns: a list of documents.
+run
+(
+query
+:
+str
+)
+→
+str
+[source]
+#
+Run Wikipedia search and get page summaries.
+pydantic
+model
+langchain.utilities.
+WolframAlphaAPIWrapper
+[source]
+#
+Wrapper for Wolfram Alpha.
+Docs for using:
+Go to wolfram alpha and sign up for a developer account
+Create an app and get your APP ID
+Save your APP ID into WOLFRAM_ALPHA_APPID env variable
+pip install wolframalpha
+field
+wolfram_alpha_appid
+:
+Optional
+[
+str
+]
+=
+None
+#
+run
+(
+query
+:
+str
+)
+→
+str
+[source]
+#
+Run query through WolframAlpha and parse result.
+previous
+Agent Toolkits
+next
+Experimental Modules
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

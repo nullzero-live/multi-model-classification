@@ -1,0 +1,40 @@
+.md
+.pdf
+Zilliz
+Contents
+Installation and Setup
+Vectorstore
+Zilliz
+#
+Zilliz Cloud
+is a fully managed service on cloud for
+LF
+AI
+Milvus®
+,
+Installation and Setup
+#
+Install the Python SDK:
+pip
+install
+pymilvus
+Vectorstore
+#
+A wrapper around Zilliz indexes allows you to use it as a vectorstore,
+whether for semantic search or example selection.
+from
+langchain.vectorstores
+import
+Milvus
+For a more detailed walkthrough of the Miluvs wrapper, see
+this notebook
+previous
+Zep
+next
+Dependents
+Contents
+Installation and Setup
+Vectorstore
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

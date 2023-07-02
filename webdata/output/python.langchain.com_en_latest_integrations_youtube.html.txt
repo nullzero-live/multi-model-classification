@@ -1,0 +1,47 @@
+.md
+.pdf
+YouTube
+Contents
+Installation and Setup
+Document Loader
+YouTube
+#
+YouTube
+is an online video sharing and social media platform created by Google.
+We download the
+YouTube
+transcripts and video information.
+Installation and Setup
+#
+pip
+install
+youtube-transcript-api
+pip
+install
+pytube
+See a
+usage example
+.
+Document Loader
+#
+See a
+usage example
+.
+from
+langchain.document_loaders
+import
+YoutubeLoader
+from
+langchain.document_loaders
+import
+GoogleApiYoutubeLoader
+previous
+Yeager.ai
+next
+Zep
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

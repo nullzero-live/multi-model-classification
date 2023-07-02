@@ -1,0 +1,157 @@
+.ipynb
+.pdf
+SingleStoreDB vector search
+SingleStoreDB vector search
+#
+SingleStore DB
+is a high-performance distributed database that supports deployment both in the
+cloud
+and on-premises. For a significant duration, it has provided support for vector functions such as
+dot_product
+, thereby positioning itself as an ideal solution for AI applications that require text similarity matching.
+This tutorial illustrates how to utilize the features of the SingleStore DB Vector Store.
+# Establishing a connection to the database is facilitated through the singlestoredb Python connector.
+# Please ensure that this connector is installed in your working environment.
+!
+pip
+install
+singlestoredb
+import
+os
+import
+getpass
+# We want to use OpenAIEmbeddings so we have to get the OpenAI API Key.
+os
+.
+environ
+[
+'OPENAI_API_KEY'
+]
+=
+getpass
+.
+getpass
+(
+'OpenAI API Key:'
+)
+from
+langchain.embeddings.openai
+import
+OpenAIEmbeddings
+from
+langchain.text_splitter
+import
+CharacterTextSplitter
+from
+langchain.vectorstores
+import
+SingleStoreDB
+from
+langchain.document_loaders
+import
+TextLoader
+# Load text samples
+from
+langchain.document_loaders
+import
+TextLoader
+loader
+=
+TextLoader
+(
+'../../../state_of_the_union.txt'
+)
+documents
+=
+loader
+.
+load
+()
+text_splitter
+=
+CharacterTextSplitter
+(
+chunk_size
+=
+1000
+,
+chunk_overlap
+=
+0
+)
+docs
+=
+text_splitter
+.
+split_documents
+(
+documents
+)
+embeddings
+=
+OpenAIEmbeddings
+()
+There are several ways to establish a
+connection
+to the database. You can either set up environment variables or pass named parameters to the
+SingleStoreDB
+constructor
+. Alternatively, you may provide these parameters to the
+from_documents
+and
+from_texts
+methods.
+# Setup connection url as environment variable
+os
+.
+environ
+[
+'SINGLESTOREDB_URL'
+]
+=
+'root:pass@localhost:3306/db'
+# Load documents to the store
+docsearch
+=
+SingleStoreDB
+.
+from_documents
+(
+docs
+,
+embeddings
+,
+table_name
+=
+"noteook"
+,
+# use table with a custom name
+)
+query
+=
+"What did the president say about Ketanji Brown Jackson"
+docs
+=
+docsearch
+.
+similarity_search
+(
+query
+)
+# Find documents that correspond to the query
+print
+(
+docs
+[
+0
+]
+.
+page_content
+)
+previous
+Redis
+next
+SKLearnVectorStore
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

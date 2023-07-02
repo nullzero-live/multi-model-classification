@@ -1,0 +1,33 @@
+.md
+.pdf
+Obsidian
+Contents
+Installation and Setup
+Document Loader
+Obsidian
+#
+Obsidian
+is a powerful and extensible knowledge base
+that works on top of your local folder of plain text files.
+Installation and Setup
+#
+All instructions are in examples below.
+Document Loader
+#
+See a
+usage example
+.
+from
+langchain.document_loaders
+import
+ObsidianLoader
+previous
+Notion DB
+next
+OpenAI
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

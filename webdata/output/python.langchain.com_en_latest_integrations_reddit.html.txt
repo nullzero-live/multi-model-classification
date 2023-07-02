@@ -1,0 +1,38 @@
+.md
+.pdf
+Reddit
+Contents
+Installation and Setup
+Document Loader
+Reddit
+#
+Reddit
+is an American social news aggregation, content rating, and discussion website.
+Installation and Setup
+#
+First, you need to install a python package.
+pip
+install
+praw
+Make a
+Reddit Application
+and initialize the loader with with your Reddit API credentials.
+Document Loader
+#
+See a
+usage example
+.
+from
+langchain.document_loaders
+import
+RedditPostsLoader
+previous
+Rebuff
+next
+Redis
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

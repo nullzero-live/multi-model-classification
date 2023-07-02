@@ -1,0 +1,32 @@
+.md
+.pdf
+College Confidential
+Contents
+Installation and Setup
+Document Loader
+College Confidential
+#
+College Confidential
+gives information on 3,800+ colleges and universities.
+Installation and Setup
+#
+There isn’t any special setup for it.
+Document Loader
+#
+See a
+usage example
+.
+from
+langchain.document_loaders
+import
+CollegeConfidentialLoader
+previous
+Cohere
+next
+Comet
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

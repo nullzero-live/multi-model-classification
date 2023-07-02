@@ -1,0 +1,360 @@
+.rst
+.pdf
+Example Selector
+Example Selector
+#
+Logic for selecting examples to include in prompts.
+pydantic
+model
+langchain.prompts.example_selector.
+LengthBasedExampleSelector
+[source]
+#
+Select examples based on length.
+Validators
+calculate_example_text_lengths
+»
+example_text_lengths
+field
+example_prompt
+:
+langchain.prompts.prompt.PromptTemplate
+[Required]
+#
+Prompt template used to format the examples.
+field
+examples
+:
+List
+[
+dict
+]
+[Required]
+#
+A list of the examples that the prompt template expects.
+field
+get_text_length
+:
+Callable
+[
+[
+str
+]
+,
+int
+]
+=
+<function
+_get_length_based>
+#
+Function to measure prompt length. Defaults to word count.
+field
+max_length
+:
+int
+=
+2048
+#
+Max length for the prompt, beyond which examples are cut.
+add_example
+(
+example
+:
+Dict
+[
+str
+,
+str
+]
+)
+→
+None
+[source]
+#
+Add new example to list.
+select_examples
+(
+input_variables
+:
+Dict
+[
+str
+,
+str
+]
+)
+→
+List
+[
+dict
+]
+[source]
+#
+Select which examples to use based on the input lengths.
+pydantic
+model
+langchain.prompts.example_selector.
+MaxMarginalRelevanceExampleSelector
+[source]
+#
+ExampleSelector that selects examples based on Max Marginal Relevance.
+This was shown to improve performance in this paper:
+https://arxiv.org/pdf/2211.13892.pdf
+field
+fetch_k
+:
+int
+=
+20
+#
+Number of examples to fetch to rerank.
+classmethod
+from_examples
+(
+examples
+:
+List
+[
+dict
+]
+,
+embeddings
+:
+langchain.embeddings.base.Embeddings
+,
+vectorstore_cls
+:
+Type
+[
+langchain.vectorstores.base.VectorStore
+]
+,
+k
+:
+int
+=
+4
+,
+input_keys
+:
+Optional
+[
+List
+[
+str
+]
+]
+=
+None
+,
+fetch_k
+:
+int
+=
+20
+,
+**
+vectorstore_cls_kwargs
+:
+Any
+)
+→
+langchain.prompts.example_selector.semantic_similarity.MaxMarginalRelevanceExampleSelector
+[source]
+#
+Create k-shot example selector using example list and embeddings.
+Reshuffles examples dynamically based on query similarity.
+Parameters
+examples
+– List of examples to use in the prompt.
+embeddings
+– An iniialized embedding API interface, e.g. OpenAIEmbeddings().
+vectorstore_cls
+– A vector store DB interface class, e.g. FAISS.
+k
+– Number of examples to select
+input_keys
+– If provided, the search is based on the input variables
+instead of all variables.
+vectorstore_cls_kwargs
+– optional kwargs containing url for vector store
+Returns
+The ExampleSelector instantiated, backed by a vector store.
+select_examples
+(
+input_variables
+:
+Dict
+[
+str
+,
+str
+]
+)
+→
+List
+[
+dict
+]
+[source]
+#
+Select which examples to use based on semantic similarity.
+pydantic
+model
+langchain.prompts.example_selector.
+SemanticSimilarityExampleSelector
+[source]
+#
+Example selector that selects examples based on SemanticSimilarity.
+field
+example_keys
+:
+Optional
+[
+List
+[
+str
+]
+]
+=
+None
+#
+Optional keys to filter examples to.
+field
+input_keys
+:
+Optional
+[
+List
+[
+str
+]
+]
+=
+None
+#
+Optional keys to filter input to. If provided, the search is based on
+the input variables instead of all variables.
+field
+k
+:
+int
+=
+4
+#
+Number of examples to select.
+field
+vectorstore
+:
+langchain.vectorstores.base.VectorStore
+[Required]
+#
+VectorStore than contains information about examples.
+add_example
+(
+example
+:
+Dict
+[
+str
+,
+str
+]
+)
+→
+str
+[source]
+#
+Add new example to vectorstore.
+classmethod
+from_examples
+(
+examples
+:
+List
+[
+dict
+]
+,
+embeddings
+:
+langchain.embeddings.base.Embeddings
+,
+vectorstore_cls
+:
+Type
+[
+langchain.vectorstores.base.VectorStore
+]
+,
+k
+:
+int
+=
+4
+,
+input_keys
+:
+Optional
+[
+List
+[
+str
+]
+]
+=
+None
+,
+**
+vectorstore_cls_kwargs
+:
+Any
+)
+→
+langchain.prompts.example_selector.semantic_similarity.SemanticSimilarityExampleSelector
+[source]
+#
+Create k-shot example selector using example list and embeddings.
+Reshuffles examples dynamically based on query similarity.
+Parameters
+examples
+– List of examples to use in the prompt.
+embeddings
+– An initialized embedding API interface, e.g. OpenAIEmbeddings().
+vectorstore_cls
+– A vector store DB interface class, e.g. FAISS.
+k
+– Number of examples to select
+input_keys
+– If provided, the search is based on the input variables
+instead of all variables.
+vectorstore_cls_kwargs
+– optional kwargs containing url for vector store
+Returns
+The ExampleSelector instantiated, backed by a vector store.
+select_examples
+(
+input_variables
+:
+Dict
+[
+str
+,
+str
+]
+)
+→
+List
+[
+dict
+]
+[source]
+#
+Select which examples to use based on semantic similarity.
+previous
+PromptTemplates
+next
+Output Parsers
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

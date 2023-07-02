@@ -1,0 +1,68 @@
+.ipynb
+.pdf
+EPub
+Contents
+Retain Elements
+EPub
+#
+EPUB
+is an e-book file format that uses the “.epub” file extension. The term is short for electronic publication and is sometimes styled ePub.
+EPUB
+is supported by many e-readers, and compatible software is available for most smartphones, tablets, and computers.
+This covers how to load
+.epub
+documents into the Document format that we can use downstream. You’ll need to install the
+pandocs
+package for this loader to work.
+#!pip install pandocs
+from
+langchain.document_loaders
+import
+UnstructuredEPubLoader
+loader
+=
+UnstructuredEPubLoader
+(
+"winter-sports.epub"
+)
+data
+=
+loader
+.
+load
+()
+Retain Elements
+#
+Under the hood, Unstructured creates different “elements” for different chunks of text. By default we combine those together, but you can easily keep that separation by specifying
+mode="elements"
+.
+loader
+=
+UnstructuredEPubLoader
+(
+"winter-sports.epub"
+,
+mode
+=
+"elements"
+)
+data
+=
+loader
+.
+load
+()
+data
+[
+0
+]
+Document(page_content='The Project Gutenberg eBook of Winter Sports in\nSwitzerland, by E. F. Benson', lookup_str='', metadata={'source': 'winter-sports.epub', 'page_number': 1, 'category': 'Title'}, lookup_index=0)
+previous
+Email
+next
+EverNote
+Contents
+Retain Elements
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

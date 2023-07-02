@@ -1,0 +1,37 @@
+.md
+.pdf
+DuckDB
+Contents
+Installation and Setup
+Document Loader
+DuckDB
+#
+DuckDB
+is an in-process SQL OLAP database management system.
+Installation and Setup
+#
+First, you need to install
+duckdb
+python package.
+pip
+install
+duckdb
+Document Loader
+#
+See a
+usage example
+.
+from
+langchain.document_loaders
+import
+DuckDBLoader
+previous
+Docugami
+next
+Elasticsearch
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

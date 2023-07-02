@@ -1,0 +1,22 @@
+.rst
+.pdf
+How-To Guides
+How-To Guides
+#
+If you’re new to the library, you may want to start with the
+Quickstart
+.
+The user guide here shows more advanced workflows and how to use the library in different ways.
+Connecting to a Feature Store
+How to create a custom prompt template
+How to create a prompt template that uses few shot examples
+How to work with partial Prompt Templates
+Prompt Composition
+How to serialize prompts
+previous
+Getting Started
+next
+Connecting to a Feature Store
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

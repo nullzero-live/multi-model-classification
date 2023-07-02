@@ -1,0 +1,37 @@
+.md
+.pdf
+Databerry
+Contents
+Installation and Setup
+Retriever
+Databerry
+#
+Databerry
+is an
+open source
+document retrieval platform that helps to connect your personal data with Large Language Models.
+Installation and Setup
+#
+We need to sign up for Databerry, create a datastore, add some data and get your datastore api endpoint url.
+We need the
+API Key
+.
+Retriever
+#
+See a
+usage example
+.
+from
+langchain.retrievers
+import
+DataberryRetriever
+previous
+C Transformers
+next
+Databricks
+Contents
+Installation and Setup
+Retriever
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

@@ -1,0 +1,49 @@
+.md
+.pdf
+Anthropic
+Contents
+Installation and Setup
+Chat Models
+Anthropic
+#
+Anthropic
+is an American artificial intelligence (AI) startup and
+public-benefit corporation, founded by former members of OpenAI.
+Anthropic
+specializes in developing general AI
+systems and language models, with a company ethos of responsible AI usage.
+Anthropic
+develops a chatbot, named
+Claude
+. Similar to
+ChatGPT
+,
+Claude
+uses a messaging
+interface where users can submit questions or requests and receive highly detailed and relevant responses.
+Installation and Setup
+#
+pip
+install
+anthropic
+See the
+setup documentation
+.
+Chat Models
+#
+See a
+usage example
+from
+langchain.chat_models
+import
+ChatAnthropic
+previous
+Annoy
+next
+Anyscale
+Contents
+Installation and Setup
+Chat Models
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

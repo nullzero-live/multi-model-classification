@@ -1,0 +1,40 @@
+.md
+.pdf
+Annoy
+Contents
+Installation and Setup
+Vectorstore
+Annoy
+#
+Annoy
+(
+Approximate
+Nearest
+Neighbors
+Oh
+Yeah
+) is a C++ library with Python bindings to search for points in space that are close to a given query point. It also creates large read-only file-based data structures that are mmapped into memory so that many processes may share the same data.
+Installation and Setup
+#
+pip
+install
+annoy
+Vectorstore
+#
+See a
+usage example
+.
+from
+langchain.vectorstores
+import
+Annoy
+previous
+AnalyticDB
+next
+Anthropic
+Contents
+Installation and Setup
+Vectorstore
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

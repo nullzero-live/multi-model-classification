@@ -1,0 +1,63 @@
+.md
+.pdf
+Psychic
+Contents
+Installation and Setup
+Advantages vs Other Document Loaders
+Psychic
+#
+Psychic
+is a platform for integrating with SaaS tools like
+Notion
+,
+Zendesk
+,
+Confluence
+, and
+Google
+Drive
+via OAuth and syncing documents from these applications to your SQL or vector
+database. You can think of it like Plaid for unstructured data.
+Installation and Setup
+#
+pip
+install
+psychicapi
+Psychic is easy to set up - you import the
+react
+library and configure it with your
+Sidekick
+API
+key, which you get
+from the
+Psychic dashboard
+. When you connect the applications, you
+view these connections from the dashboard and retrieve data using the server-side libraries.
+Create an account in the
+dashboard
+.
+Use the
+react library
+to add the Psychic link modal to your frontend react app. You will use this to connect the SaaS apps.
+Once you have created a connection, you can use the
+PsychicLoader
+by following the
+example notebook
+Advantages vs Other Document Loaders
+#
+Universal API:
+Instead of building OAuth flows and learning the APIs for every SaaS app, you integrate Psychic once and leverage our universal API to retrieve data.
+Data Syncs:
+Data in your customers’ SaaS apps can get stale fast. With Psychic you can configure webhooks to keep your documents up to date on a daily or realtime basis.
+Simplified OAuth:
+Psychic handles OAuth end-to-end so that you don’t have to spend time creating OAuth clients for each integration, keeping access tokens fresh, and handling OAuth redirect logic.
+previous
+PromptLayer
+next
+Qdrant
+Contents
+Installation and Setup
+Advantages vs Other Document Loaders
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

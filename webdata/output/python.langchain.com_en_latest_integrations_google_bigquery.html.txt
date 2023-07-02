@@ -1,0 +1,43 @@
+.md
+.pdf
+Google BigQuery
+Contents
+Installation and Setup
+Document Loader
+Google BigQuery
+#
+Google BigQuery
+is a serverless and cost-effective enterprise data warehouse that works across clouds and scales with your data.
+BigQuery
+is a part of the
+Google
+Cloud
+Platform
+.
+Installation and Setup
+#
+First, you need to install
+google-cloud-bigquery
+python package.
+pip
+install
+google-cloud-bigquery
+Document Loader
+#
+See a
+usage example
+.
+from
+langchain.document_loaders
+import
+BigQueryLoader
+previous
+GitBook
+next
+Google Cloud Storage
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

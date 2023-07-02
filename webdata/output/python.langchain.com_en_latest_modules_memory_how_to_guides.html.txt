@@ -1,0 +1,49 @@
+.rst
+.pdf
+How-To Guides
+Contents
+Types
+Usage
+How-To Guides
+#
+Types
+#
+The first set of examples all highlight different types of memory.
+ConversationBufferMemory
+ConversationBufferWindowMemory
+Entity Memory
+Conversation Knowledge Graph Memory
+ConversationSummaryMemory
+ConversationSummaryBufferMemory
+ConversationTokenBufferMemory
+VectorStore-Backed Memory
+Usage
+#
+The examples here all highlight how to use memory in different ways.
+How to add Memory to an LLMChain
+How to add memory to a Multi-Input Chain
+How to add Memory to an Agent
+Adding Message Memory backed by a database to an Agent
+Cassandra Chat Message History
+How to customize conversational memory
+How to create a custom Memory class
+Dynamodb Chat Message History
+Entity Memory with SQLite storage
+Momento Chat Message History
+Mongodb Chat Message History
+Motörhead Memory
+Motörhead Memory (Managed)
+How to use multiple memory classes in the same chain
+Postgres Chat Message History
+Redis Chat Message History
+Zep Memory
+previous
+Getting Started
+next
+ConversationBufferMemory
+Contents
+Types
+Usage
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

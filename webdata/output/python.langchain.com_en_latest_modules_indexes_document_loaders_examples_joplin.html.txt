@@ -1,0 +1,49 @@
+.ipynb
+.pdf
+Joplin
+Joplin
+#
+Joplin
+is an open source note-taking app. Capture your thoughts and securely access them from any device.
+This notebook covers how to load documents from a
+Joplin
+database.
+Joplin
+has a
+REST API
+for accessing its local database. This loader uses the API to retrieve all notes in the database and their metadata. This requires an access token that can be obtained from the app by following these steps:
+Open the
+Joplin
+app. The app must stay open while the documents are being loaded.
+Go to settings / options and select “Web Clipper”.
+Make sure that the Web Clipper service is enabled.
+Under “Advanced Options”, copy the authorization token.
+You may either initialize the loader directly with the access token, or store it in the environment variable JOPLIN_ACCESS_TOKEN.
+An alternative to this approach is to export the
+Joplin
+’s note database to Markdown files (optionally, with Front Matter metadata) and use a Markdown loader, such as ObsidianLoader, to load them.
+from
+langchain.document_loaders
+import
+JoplinLoader
+loader
+=
+JoplinLoader
+(
+access_token
+=
+"<access-token>"
+)
+docs
+=
+loader
+.
+load
+()
+previous
+Iugu
+next
+Microsoft OneDrive
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

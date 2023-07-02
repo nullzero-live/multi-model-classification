@@ -1,0 +1,45 @@
+.md
+.pdf
+Confluence
+Contents
+Installation and Setup
+Document Loader
+Confluence
+#
+Confluence
+is a wiki collaboration platform that saves and organizes all of the project-related material.
+Confluence
+is a knowledge base that primarily handles content management activities.
+Installation and Setup
+#
+pip
+install
+atlassian-python-api
+We need to set up
+username/api_key
+or
+Oauth2
+login
+.
+See
+instructions
+.
+Document Loader
+#
+See a
+usage example
+.
+from
+langchain.document_loaders
+import
+ConfluenceLoader
+previous
+Comet
+next
+C Transformers
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

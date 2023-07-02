@@ -1,0 +1,48 @@
+.ipynb
+.pdf
+Tensorflow Hub
+Tensorflow Hub
+#
+TensorFlow Hub
+is a repository of trained machine learning models ready for fine-tuning and deployable anywhere.
+TensorFlow Hub
+lets you search and discover hundreds of trained, ready-to-deploy machine learning models in one place.
+from
+langchain.embeddings
+import
+TensorflowHubEmbeddings
+embeddings
+=
+TensorflowHubEmbeddings
+()
+2023-01-30 23:53:01.652176: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-01-30 23:53:34.362802: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+text
+=
+"This is a test document."
+query_result
+=
+embeddings
+.
+embed_query
+(
+text
+)
+doc_results
+=
+embeddings
+.
+embed_documents
+([
+"foo"
+])
+doc_results
+previous
+Sentence Transformers
+next
+Prompts
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

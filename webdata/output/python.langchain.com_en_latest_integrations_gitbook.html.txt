@@ -1,0 +1,32 @@
+.md
+.pdf
+GitBook
+Contents
+Installation and Setup
+Document Loader
+GitBook
+#
+GitBook
+is a modern documentation platform where teams can document everything from products to internal knowledge bases and APIs.
+Installation and Setup
+#
+There isn’t any special setup for it.
+Document Loader
+#
+See a
+usage example
+.
+from
+langchain.document_loaders
+import
+GitbookLoader
+previous
+Git
+next
+Google BigQuery
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

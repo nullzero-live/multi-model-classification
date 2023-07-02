@@ -1,0 +1,34 @@
+.md
+.pdf
+BiliBili
+Contents
+Installation and Setup
+Document Loader
+BiliBili
+#
+Bilibili
+is one of the most beloved long-form video sites in China.
+Installation and Setup
+#
+pip
+install
+bilibili-api-python
+Document Loader
+#
+See a
+usage example
+.
+from
+langchain.document_loaders
+import
+BiliBiliLoader
+previous
+Beam
+next
+Blackboard
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

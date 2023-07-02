@@ -1,0 +1,32 @@
+.md
+.pdf
+Gutenberg
+Contents
+Installation and Setup
+Document Loader
+Gutenberg
+#
+Project Gutenberg
+is an online library of free eBooks.
+Installation and Setup
+#
+There isn’t any special setup for it.
+Document Loader
+#
+See a
+usage example
+.
+from
+langchain.document_loaders
+import
+GutenbergLoader
+previous
+Graphsignal
+next
+Hacker News
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

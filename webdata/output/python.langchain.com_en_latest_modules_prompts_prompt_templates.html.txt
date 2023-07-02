@@ -1,0 +1,24 @@
+.rst
+.pdf
+Prompt Templates
+Prompt Templates
+#
+Note
+Conceptual Guide
+Language models take text as input - that text is commonly referred to as a prompt.
+Typically this is not simply a hardcoded string but rather a combination of a template, some examples, and user input.
+LangChain provides several classes and functions to make constructing and working with prompts easy.
+The following sections of documentation are provided:
+Getting Started
+: An overview of all the functionality LangChain provides for working with and constructing prompts.
+How-To Guides
+: A collection of how-to guides. These highlight how to accomplish various objectives with our prompt class.
+Reference
+: API reference documentation for all prompt classes.
+previous
+Getting Started
+next
+Getting Started
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

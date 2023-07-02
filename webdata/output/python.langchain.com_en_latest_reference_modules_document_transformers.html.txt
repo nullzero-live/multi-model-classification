@@ -1,0 +1,109 @@
+.rst
+.pdf
+Document Transformers
+Document Transformers
+#
+Transform documents
+pydantic
+model
+langchain.document_transformers.
+EmbeddingsRedundantFilter
+[source]
+#
+Filter that drops redundant documents by comparing their embeddings.
+field
+embeddings
+:
+langchain.embeddings.base.Embeddings
+[Required]
+#
+Embeddings to use for embedding document contents.
+field
+similarity_fn
+:
+Callable
+=
+<function
+cosine_similarity>
+#
+Similarity function for comparing documents. Function expected to take as input
+two matrices (List[List[float]]) and return a matrix of scores where higher values
+indicate greater similarity.
+field
+similarity_threshold
+:
+float
+=
+0.95
+#
+Threshold for determining when two documents are similar enough
+to be considered redundant.
+async
+atransform_documents
+(
+documents
+:
+Sequence
+[
+langchain.schema.Document
+]
+,
+**
+kwargs
+:
+Any
+)
+→
+Sequence
+[
+langchain.schema.Document
+]
+[source]
+#
+Asynchronously transform a list of documents.
+transform_documents
+(
+documents
+:
+Sequence
+[
+langchain.schema.Document
+]
+,
+**
+kwargs
+:
+Any
+)
+→
+Sequence
+[
+langchain.schema.Document
+]
+[source]
+#
+Filter down documents.
+langchain.document_transformers.
+get_stateful_documents
+(
+documents
+:
+Sequence
+[
+langchain.schema.Document
+]
+)
+→
+Sequence
+[
+langchain.document_transformers._DocumentWithState
+]
+[source]
+#
+previous
+Document Compressors
+next
+Memory
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

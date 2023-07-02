@@ -1,0 +1,752 @@
+.rst
+.pdf
+Output Parsers
+Output Parsers
+#
+pydantic
+model
+langchain.output_parsers.
+CommaSeparatedListOutputParser
+[source]
+#
+Parse out comma separated lists.
+get_format_instructions
+(
+)
+→
+str
+[source]
+#
+Instructions on how the LLM output should be formatted.
+parse
+(
+text
+:
+str
+)
+→
+List
+[
+str
+]
+[source]
+#
+Parse the output of an LLM call.
+pydantic
+model
+langchain.output_parsers.
+DatetimeOutputParser
+[source]
+#
+field
+format
+:
+str
+=
+'%Y-%m-%dT%H:%M:%S.%fZ'
+#
+get_format_instructions
+(
+)
+→
+str
+[source]
+#
+Instructions on how the LLM output should be formatted.
+parse
+(
+response
+:
+str
+)
+→
+datetime.datetime
+[source]
+#
+Parse the output of an LLM call.
+A method which takes in a string (assumed output of a language model )
+and parses it into some structure.
+Parameters
+text
+– output of language model
+Returns
+structured output
+pydantic
+model
+langchain.output_parsers.
+GuardrailsOutputParser
+[source]
+#
+field
+guard
+:
+Any
+=
+None
+#
+classmethod
+from_rail
+(
+rail_file
+:
+str
+,
+num_reasks
+:
+int
+=
+1
+)
+→
+langchain.output_parsers.rail_parser.GuardrailsOutputParser
+[source]
+#
+classmethod
+from_rail_string
+(
+rail_str
+:
+str
+,
+num_reasks
+:
+int
+=
+1
+)
+→
+langchain.output_parsers.rail_parser.GuardrailsOutputParser
+[source]
+#
+get_format_instructions
+(
+)
+→
+str
+[source]
+#
+Instructions on how the LLM output should be formatted.
+parse
+(
+text
+:
+str
+)
+→
+Dict
+[source]
+#
+Parse the output of an LLM call.
+A method which takes in a string (assumed output of a language model )
+and parses it into some structure.
+Parameters
+text
+– output of language model
+Returns
+structured output
+pydantic
+model
+langchain.output_parsers.
+ListOutputParser
+[source]
+#
+Class to parse the output of an LLM call to a list.
+abstract
+parse
+(
+text
+:
+str
+)
+→
+List
+[
+str
+]
+[source]
+#
+Parse the output of an LLM call.
+pydantic
+model
+langchain.output_parsers.
+OutputFixingParser
+[source]
+#
+Wraps a parser and tries to fix parsing errors.
+field
+parser
+:
+langchain.schema.BaseOutputParser
+[
+langchain.output_parsers.fix.T
+]
+[Required]
+#
+field
+retry_chain
+:
+langchain.chains.llm.LLMChain
+[Required]
+#
+classmethod
+from_llm
+(
+llm
+:
+langchain.base_language.BaseLanguageModel
+,
+parser
+:
+langchain.schema.BaseOutputParser
+[
+langchain.output_parsers.fix.T
+]
+,
+prompt
+:
+langchain.prompts.base.BasePromptTemplate
+=
+PromptTemplate(input_variables=['completion',
+'error',
+'instructions'],
+output_parser=None,
+partial_variables={},
+template='Instructions:\n--------------\n{instructions}\n--------------\nCompletion:\n--------------\n{completion}\n--------------\n\nAbove,
+the
+Completion
+did
+not
+satisfy
+the
+constraints
+given
+in
+the
+Instructions.\nError:\n--------------\n{error}\n--------------\n\nPlease
+try
+again.
+Please
+only
+respond
+with
+an
+answer
+that
+satisfies
+the
+constraints
+laid
+out
+in
+the
+Instructions:',
+template_format='f-string',
+validate_template=True)
+)
+→
+langchain.output_parsers.fix.OutputFixingParser
+[
+langchain.output_parsers.fix.T
+]
+[source]
+#
+get_format_instructions
+(
+)
+→
+str
+[source]
+#
+Instructions on how the LLM output should be formatted.
+parse
+(
+completion
+:
+str
+)
+→
+langchain.output_parsers.fix.T
+[source]
+#
+Parse the output of an LLM call.
+A method which takes in a string (assumed output of a language model )
+and parses it into some structure.
+Parameters
+text
+– output of language model
+Returns
+structured output
+pydantic
+model
+langchain.output_parsers.
+PydanticOutputParser
+[source]
+#
+field
+pydantic_object
+:
+Type
+[
+langchain.output_parsers.pydantic.T
+]
+[Required]
+#
+get_format_instructions
+(
+)
+→
+str
+[source]
+#
+Instructions on how the LLM output should be formatted.
+parse
+(
+text
+:
+str
+)
+→
+langchain.output_parsers.pydantic.T
+[source]
+#
+Parse the output of an LLM call.
+A method which takes in a string (assumed output of a language model )
+and parses it into some structure.
+Parameters
+text
+– output of language model
+Returns
+structured output
+pydantic
+model
+langchain.output_parsers.
+RegexDictParser
+[source]
+#
+Class to parse the output into a dictionary.
+field
+no_update_value
+:
+Optional
+[
+str
+]
+=
+None
+#
+field
+output_key_to_format
+:
+Dict
+[
+str
+,
+str
+]
+[Required]
+#
+field
+regex_pattern
+:
+str
+=
+"{}:\\s?([^.'\\n']*)\\.?"
+#
+parse
+(
+text
+:
+str
+)
+→
+Dict
+[
+str
+,
+str
+]
+[source]
+#
+Parse the output of an LLM call.
+pydantic
+model
+langchain.output_parsers.
+RegexParser
+[source]
+#
+Class to parse the output into a dictionary.
+field
+default_output_key
+:
+Optional
+[
+str
+]
+=
+None
+#
+field
+output_keys
+:
+List
+[
+str
+]
+[Required]
+#
+field
+regex
+:
+str
+[Required]
+#
+parse
+(
+text
+:
+str
+)
+→
+Dict
+[
+str
+,
+str
+]
+[source]
+#
+Parse the output of an LLM call.
+pydantic
+model
+langchain.output_parsers.
+ResponseSchema
+[source]
+#
+field
+description
+:
+str
+[Required]
+#
+field
+name
+:
+str
+[Required]
+#
+field
+type
+:
+str
+=
+'string'
+#
+pydantic
+model
+langchain.output_parsers.
+RetryOutputParser
+[source]
+#
+Wraps a parser and tries to fix parsing errors.
+Does this by passing the original prompt and the completion to another
+LLM, and telling it the completion did not satisfy criteria in the prompt.
+field
+parser
+:
+langchain.schema.BaseOutputParser
+[
+langchain.output_parsers.retry.T
+]
+[Required]
+#
+field
+retry_chain
+:
+langchain.chains.llm.LLMChain
+[Required]
+#
+classmethod
+from_llm
+(
+llm
+:
+langchain.base_language.BaseLanguageModel
+,
+parser
+:
+langchain.schema.BaseOutputParser
+[
+langchain.output_parsers.retry.T
+]
+,
+prompt
+:
+langchain.prompts.base.BasePromptTemplate
+=
+PromptTemplate(input_variables=['completion',
+'prompt'],
+output_parser=None,
+partial_variables={},
+template='Prompt:\n{prompt}\nCompletion:\n{completion}\n\nAbove,
+the
+Completion
+did
+not
+satisfy
+the
+constraints
+given
+in
+the
+Prompt.\nPlease
+try
+again:',
+template_format='f-string',
+validate_template=True)
+)
+→
+langchain.output_parsers.retry.RetryOutputParser
+[
+langchain.output_parsers.retry.T
+]
+[source]
+#
+get_format_instructions
+(
+)
+→
+str
+[source]
+#
+Instructions on how the LLM output should be formatted.
+parse
+(
+completion
+:
+str
+)
+→
+langchain.output_parsers.retry.T
+[source]
+#
+Parse the output of an LLM call.
+A method which takes in a string (assumed output of a language model )
+and parses it into some structure.
+Parameters
+text
+– output of language model
+Returns
+structured output
+parse_with_prompt
+(
+completion
+:
+str
+,
+prompt_value
+:
+langchain.schema.PromptValue
+)
+→
+langchain.output_parsers.retry.T
+[source]
+#
+Optional method to parse the output of an LLM call with a prompt.
+The prompt is largely provided in the event the OutputParser wants
+to retry or fix the output in some way, and needs information from
+the prompt to do so.
+Parameters
+completion
+– output of language model
+prompt
+– prompt value
+Returns
+structured output
+pydantic
+model
+langchain.output_parsers.
+RetryWithErrorOutputParser
+[source]
+#
+Wraps a parser and tries to fix parsing errors.
+Does this by passing the original prompt, the completion, AND the error
+that was raised to another language model and telling it that the completion
+did not work, and raised the given error. Differs from RetryOutputParser
+in that this implementation provides the error that was raised back to the
+LLM, which in theory should give it more information on how to fix it.
+field
+parser
+:
+langchain.schema.BaseOutputParser
+[
+langchain.output_parsers.retry.T
+]
+[Required]
+#
+field
+retry_chain
+:
+langchain.chains.llm.LLMChain
+[Required]
+#
+classmethod
+from_llm
+(
+llm
+:
+langchain.base_language.BaseLanguageModel
+,
+parser
+:
+langchain.schema.BaseOutputParser
+[
+langchain.output_parsers.retry.T
+]
+,
+prompt
+:
+langchain.prompts.base.BasePromptTemplate
+=
+PromptTemplate(input_variables=['completion',
+'error',
+'prompt'],
+output_parser=None,
+partial_variables={},
+template='Prompt:\n{prompt}\nCompletion:\n{completion}\n\nAbove,
+the
+Completion
+did
+not
+satisfy
+the
+constraints
+given
+in
+the
+Prompt.\nDetails:
+{error}\nPlease
+try
+again:',
+template_format='f-string',
+validate_template=True)
+)
+→
+langchain.output_parsers.retry.RetryWithErrorOutputParser
+[
+langchain.output_parsers.retry.T
+]
+[source]
+#
+get_format_instructions
+(
+)
+→
+str
+[source]
+#
+Instructions on how the LLM output should be formatted.
+parse
+(
+completion
+:
+str
+)
+→
+langchain.output_parsers.retry.T
+[source]
+#
+Parse the output of an LLM call.
+A method which takes in a string (assumed output of a language model )
+and parses it into some structure.
+Parameters
+text
+– output of language model
+Returns
+structured output
+parse_with_prompt
+(
+completion
+:
+str
+,
+prompt_value
+:
+langchain.schema.PromptValue
+)
+→
+langchain.output_parsers.retry.T
+[source]
+#
+Optional method to parse the output of an LLM call with a prompt.
+The prompt is largely provided in the event the OutputParser wants
+to retry or fix the output in some way, and needs information from
+the prompt to do so.
+Parameters
+completion
+– output of language model
+prompt
+– prompt value
+Returns
+structured output
+pydantic
+model
+langchain.output_parsers.
+StructuredOutputParser
+[source]
+#
+field
+response_schemas
+:
+List
+[
+langchain.output_parsers.structured.ResponseSchema
+]
+[Required]
+#
+classmethod
+from_response_schemas
+(
+response_schemas
+:
+List
+[
+langchain.output_parsers.structured.ResponseSchema
+]
+)
+→
+langchain.output_parsers.structured.StructuredOutputParser
+[source]
+#
+get_format_instructions
+(
+)
+→
+str
+[source]
+#
+Instructions on how the LLM output should be formatted.
+parse
+(
+text
+:
+str
+)
+→
+Any
+[source]
+#
+Parse the output of an LLM call.
+A method which takes in a string (assumed output of a language model )
+and parses it into some structure.
+Parameters
+text
+– output of language model
+Returns
+structured output
+previous
+Example Selector
+next
+Chat Prompt Templates
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

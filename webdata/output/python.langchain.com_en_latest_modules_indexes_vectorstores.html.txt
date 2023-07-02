@@ -1,0 +1,52 @@
+.rst
+.pdf
+Vectorstores
+Vectorstores
+#
+Note
+Conceptual Guide
+Vectorstores are one of the most important components of building indexes.
+For an introduction to vectorstores and generic functionality see:
+Getting Started
+We also have documentation for all the types of vectorstores that are supported.
+Please see below for that list.
+AnalyticDB
+Annoy
+Atlas
+Chroma
+ClickHouse Vector Search
+Deep Lake
+DocArrayHnswSearch
+DocArrayInMemorySearch
+ElasticSearch
+ElasticVectorSearch class
+ElasticKnnSearch Class
+FAISS
+LanceDB
+MatchingEngine
+Milvus
+Commented out until further notice
+MyScale
+OpenSearch
+PGVector
+Pinecone
+Qdrant
+Redis
+SingleStoreDB vector search
+SKLearnVectorStore
+Supabase (Postgres)
+Tair
+Tigris
+Typesense
+Vectara
+Weaviate
+Persistance
+Retriever options
+Zilliz
+previous
+tiktoken (OpenAI) tokenizer
+next
+Getting Started
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

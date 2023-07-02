@@ -1,0 +1,35 @@
+.md
+.pdf
+Modern Treasury
+Contents
+Installation and Setup
+Document Loader
+Modern Treasury
+#
+Modern Treasury
+simplifies complex payment operations. It is a unified platform to power products and processes that move money.
+Connect to banks and payment systems
+Track transactions and balances in real-time
+Automate payment operations for scale
+Installation and Setup
+#
+There isn’t any special setup for it.
+Document Loader
+#
+See a
+usage example
+.
+from
+langchain.document_loaders
+import
+ModernTreasuryLoader
+previous
+Modal
+next
+Momento
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

@@ -1,0 +1,16 @@
+.rst
+.pdf
+Prompts
+Prompts
+#
+The reference guides here all relate to objects for working with Prompts.
+PromptTemplates
+Example Selector
+Output Parsers
+previous
+How to serialize prompts
+next
+PromptTemplates
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

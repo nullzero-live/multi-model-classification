@@ -1,0 +1,32 @@
+.md
+.pdf
+AZLyrics
+Contents
+Installation and Setup
+Document Loader
+AZLyrics
+#
+AZLyrics
+is a large, legal, every day growing collection of lyrics.
+Installation and Setup
+#
+There isn’t any special setup for it.
+Document Loader
+#
+See a
+usage example
+.
+from
+langchain.document_loaders
+import
+AZLyricsLoader
+previous
+AWS S3 Directory
+next
+Azure Blob Storage
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

@@ -1,0 +1,31 @@
+.rst
+.pdf
+Toolkits
+Toolkits
+#
+Note
+Conceptual Guide
+This section of documentation covers agents with toolkits - eg an agent applied to a particular use case.
+See below for a full list of agent toolkits
+Azure Cognitive Services Toolkit
+CSV Agent
+Gmail Toolkit
+Jira
+JSON Agent
+OpenAPI agents
+Natural Language APIs
+Pandas Dataframe Agent
+PlayWright Browser Toolkit
+PowerBI Dataset Agent
+Python Agent
+Spark Dataframe Agent
+Spark SQL Agent
+SQL Database Agent
+Vectorstore Agent
+previous
+Structured Tool Chat Agent
+next
+Azure Cognitive Services Toolkit
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

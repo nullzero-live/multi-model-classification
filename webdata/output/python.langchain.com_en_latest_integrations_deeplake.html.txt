@@ -1,0 +1,63 @@
+.md
+.pdf
+Deep Lake
+Contents
+Why Deep Lake?
+More Resources
+Installation and Setup
+Wrappers
+VectorStore
+Deep Lake
+#
+This page covers how to use the Deep Lake ecosystem within LangChain.
+Why Deep Lake?
+#
+More than just a (multi-modal) vector store. You can later use the dataset to fine-tune your own LLM models.
+Not only stores embeddings, but also the original data with automatic version control.
+Truly serverless. Doesn’t require another service and can be used with major cloud providers (AWS S3, GCS, etc.)
+More Resources
+#
+Ultimate Guide to LangChain & Deep Lake: Build ChatGPT to Answer Questions on Your Financial Data
+Twitter the-algorithm codebase analysis with Deep Lake
+Here is
+whitepaper
+and
+academic paper
+for Deep Lake
+Here is a set of additional resources available for review:
+Deep Lake
+,
+Getting Started
+and
+Tutorials
+Installation and Setup
+#
+Install the Python package with
+pip
+install
+deeplake
+Wrappers
+#
+VectorStore
+#
+There exists a wrapper around Deep Lake, a data lake for Deep Learning applications, allowing you to use it as a vector store (for now), whether for semantic search or example selection.
+To import this vectorstore:
+from
+langchain.vectorstores
+import
+DeepLake
+For a more detailed walkthrough of the Deep Lake wrapper, see
+this notebook
+previous
+DeepInfra
+next
+Diffbot
+Contents
+Why Deep Lake?
+More Resources
+Installation and Setup
+Wrappers
+VectorStore
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

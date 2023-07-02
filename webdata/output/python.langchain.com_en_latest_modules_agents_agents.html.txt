@@ -1,0 +1,32 @@
+.rst
+.pdf
+Agents
+Agents
+#
+Note
+Conceptual Guide
+In this part of the documentation we cover the different types of agents, disregarding which specific tools they are used with.
+For a high level overview of the different types of agents, see the below documentation.
+Agent Types
+For documentation on how to create a custom agent, see the below.
+Custom Agent
+Custom LLM Agent
+Custom LLM Agent (with a ChatModel)
+Custom MRKL Agent
+Custom MultiAction Agent
+Custom Agent with Tool Retrieval
+We also have documentation for an in-depth dive into each agent type.
+Conversation Agent (for Chat Models)
+Conversation Agent
+MRKL
+MRKL Chat
+ReAct
+Self Ask With Search
+Structured Tool Chat Agent
+previous
+Zapier Natural Language Actions API
+next
+Agent Types
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

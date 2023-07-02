@@ -1,0 +1,36 @@
+.md
+.pdf
+Docugami
+Contents
+Installation and Setup
+Document Loader
+Docugami
+#
+Docugami
+converts business documents into a Document XML Knowledge Graph, generating forests
+of XML semantic trees representing entire documents. This is a rich representation that includes the semantic and
+structural characteristics of various chunks in the document as an XML tree.
+Installation and Setup
+#
+pip
+install
+lxml
+Document Loader
+#
+See a
+usage example
+.
+from
+langchain.document_loaders
+import
+DocugamiLoader
+previous
+Discord
+next
+DuckDB
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

@@ -1,0 +1,46 @@
+.md
+.pdf
+Chroma
+Contents
+Installation and Setup
+VectorStore
+Retriever
+Chroma
+#
+Chroma
+is a database for building AI applications with embeddings.
+Installation and Setup
+#
+pip
+install
+chromadb
+VectorStore
+#
+There exists a wrapper around Chroma vector databases, allowing you to use it as a vectorstore,
+whether for semantic search or example selection.
+from
+langchain.vectorstores
+import
+Chroma
+For a more detailed walkthrough of the Chroma wrapper, see
+this notebook
+Retriever
+#
+See a
+usage example
+.
+from
+langchain.retrievers
+import
+SelfQueryRetriever
+previous
+CerebriumAI
+next
+ClearML
+Contents
+Installation and Setup
+VectorStore
+Retriever
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

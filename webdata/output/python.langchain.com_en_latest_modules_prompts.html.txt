@@ -1,0 +1,38 @@
+.rst
+.pdf
+Prompts
+Prompts
+#
+Note
+Conceptual Guide
+The new way of programming models is through prompts.
+A
+prompt
+refers to the input to the model.
+This input is often constructed from multiple components.
+A
+PromptTemplate
+is responsible for the construction of this input.
+LangChain provides several classes and functions to make constructing and working with prompts easy.
+Getting Started
+: An overview of the prompts.
+LLM Prompt Templates
+: How to use PromptTemplates to prompt Language Models.
+Chat Prompt Templates
+: How to use PromptTemplates to prompt Chat Models.
+Example Selectors
+: Often times it is useful to include examples in prompts.
+These examples can be dynamically selected. This section goes over example selection.
+Output Parsers
+: Language models (and Chat Models) output text.
+But many times you may want to get more structured information. This is where output parsers come in.
+Output Parsers:
+instruct the model how output should be formatted,
+parse output into the desired formatting (including retrying if necessary).
+previous
+Tensorflow Hub
+next
+Getting Started
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

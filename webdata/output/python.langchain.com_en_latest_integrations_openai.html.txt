@@ -1,0 +1,147 @@
+.md
+.pdf
+OpenAI
+Contents
+Installation and Setup
+LLM
+Text Embedding Model
+Chat Model
+Tokenizer
+Chain
+Document Loader
+Retriever
+OpenAI
+#
+OpenAI
+is American artificial intelligence (AI) research laboratory
+consisting of the non-profit
+OpenAI
+Incorporated
+and its for-profit subsidiary corporation
+OpenAI
+Limited
+Partnership
+.
+OpenAI
+conducts AI research with the declared intention of promoting and developing a friendly AI.
+OpenAI
+systems run on an
+Azure
+-based supercomputing platform from
+Microsoft
+.
+The
+OpenAI API
+is powered by a diverse set of models with different capabilities and price points.
+ChatGPT
+is the Artificial Intelligence (AI) chatbot developed by
+OpenAI
+.
+Installation and Setup
+#
+Install the Python SDK with
+pip
+install
+openai
+Get an OpenAI api key and set it as an environment variable (
+OPENAI_API_KEY
+)
+If you want to use OpenAI’s tokenizer (only available for Python 3.9+), install it
+pip
+install
+tiktoken
+LLM
+#
+from
+langchain.llms
+import
+OpenAI
+If you are using a model hosted on
+Azure
+, you should use different wrapper for that:
+from
+langchain.llms
+import
+AzureOpenAI
+For a more detailed walkthrough of the
+Azure
+wrapper, see
+this notebook
+Text Embedding Model
+#
+from
+langchain.embeddings
+import
+OpenAIEmbeddings
+For a more detailed walkthrough of this, see
+this notebook
+Chat Model
+#
+from
+langchain.chat_models
+import
+ChatOpenAI
+For a more detailed walkthrough of this, see
+this notebook
+Tokenizer
+#
+There are several places you can use the
+tiktoken
+tokenizer. By default, it is used to count tokens
+for OpenAI LLMs.
+You can also use it to count tokens when splitting documents with
+from
+langchain.text_splitter
+import
+CharacterTextSplitter
+CharacterTextSplitter
+.
+from_tiktoken_encoder
+(
+...
+)
+For a more detailed walkthrough of this, see
+this notebook
+Chain
+#
+See a
+usage example
+.
+from
+langchain.chains
+import
+OpenAIModerationChain
+Document Loader
+#
+See a
+usage example
+.
+from
+langchain.document_loaders.chatgpt
+import
+ChatGPTLoader
+Retriever
+#
+See a
+usage example
+.
+from
+langchain.retrievers
+import
+ChatGPTPluginRetriever
+previous
+Obsidian
+next
+OpenSearch
+Contents
+Installation and Setup
+LLM
+Text Embedding Model
+Chat Model
+Tokenizer
+Chain
+Document Loader
+Retriever
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

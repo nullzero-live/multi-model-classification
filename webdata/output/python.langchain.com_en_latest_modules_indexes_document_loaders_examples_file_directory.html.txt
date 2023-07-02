@@ -1,0 +1,691 @@
+.ipynb
+.pdf
+File Directory
+Contents
+Show a progress bar
+Use multithreading
+Change loader class
+Auto detect file encodings with TextLoader
+A. Default Behavior
+B. Silent fail
+C. Auto detect encodings
+File Directory
+#
+This covers how to use the
+DirectoryLoader
+to load all documents in a directory. Under the hood, by default this uses the
+UnstructuredLoader
+from
+langchain.document_loaders
+import
+DirectoryLoader
+We can use the
+glob
+parameter to control which files to load. Note that here it doesn’t load the
+.rst
+file or the
+.ipynb
+files.
+loader
+=
+DirectoryLoader
+(
+'../'
+,
+glob
+=
+"**/*.md"
+)
+docs
+=
+loader
+.
+load
+()
+len
+(
+docs
+)
+1
+Show a progress bar
+#
+By default a progress bar will not be shown. To show a progress bar, install the
+tqdm
+library (e.g.
+pip
+install
+tqdm
+), and set the
+show_progress
+parameter to
+True
+.
+%
+pip
+install tqdm
+loader
+=
+DirectoryLoader
+(
+'../'
+,
+glob
+=
+"**/*.md"
+,
+show_progress
+=
+True
+)
+docs
+=
+loader
+.
+load
+()
+Requirement already satisfied: tqdm in /Users/jon/.pyenv/versions/3.9.16/envs/microbiome-app/lib/python3.9/site-packages (4.65.0)
+0it [00:00, ?it/s]
+Use multithreading
+#
+By default the loading happens in one thread. In order to utilize several threads set the
+use_multithreading
+flag to true.
+loader
+=
+DirectoryLoader
+(
+'../'
+,
+glob
+=
+"**/*.md"
+,
+use_multithreading
+=
+True
+)
+docs
+=
+loader
+.
+load
+()
+Change loader class
+#
+By default this uses the
+UnstructuredLoader
+class. However, you can change up the type of loader pretty easily.
+from
+langchain.document_loaders
+import
+TextLoader
+loader
+=
+DirectoryLoader
+(
+'../'
+,
+glob
+=
+"**/*.md"
+,
+loader_cls
+=
+TextLoader
+)
+docs
+=
+loader
+.
+load
+()
+len
+(
+docs
+)
+1
+If you need to load Python source code files, use the
+PythonLoader
+.
+from
+langchain.document_loaders
+import
+PythonLoader
+loader
+=
+DirectoryLoader
+(
+'../../../../../'
+,
+glob
+=
+"**/*.py"
+,
+loader_cls
+=
+PythonLoader
+)
+docs
+=
+loader
+.
+load
+()
+len
+(
+docs
+)
+691
+Auto detect file encodings with TextLoader
+#
+In this example we will see some strategies that can be useful when loading a big list of arbitrary files from a directory using the
+TextLoader
+class.
+First to illustrate the problem, let’s try to load multiple text with arbitrary encodings.
+path
+=
+'../../../../../tests/integration_tests/examples'
+loader
+=
+DirectoryLoader
+(
+path
+,
+glob
+=
+"**/*.txt"
+,
+loader_cls
+=
+TextLoader
+)
+A. Default Behavior
+#
+loader
+.
+load
+()
+╭───────────────────────────────
+Traceback
+(most recent call last)
+────────────────────────────────╮
+│
+/data/source/langchain/langchain/document_loaders/
+text.py
+:
+29
+in
+load
+│
+│
+│
+│
+26
+│   │
+text =
+""
+│
+│
+27
+│   │
+with
+open
+(
+self
+.file_path, encoding=
+self
+.encoding)
+as
+f:
+│
+│
+28
+│   │   │
+try
+:
+│
+│
+❱
+29
+│   │   │   │
+text = f.read()
+│
+│
+30
+│   │   │
+except
+UnicodeDecodeError
+as
+e:
+│
+│
+31
+│   │   │   │
+if
+self
+.autodetect_encoding:
+│
+│
+32
+│   │   │   │   │
+detected_encodings =
+self
+.detect_file_encodings()
+│
+│
+│
+│
+/home/spike/.pyenv/versions/3.9.11/lib/python3.9/
+codecs.py
+:
+322
+in
+decode
+│
+│
+│
+│
+319
+│
+def
+decode
+(
+self
+,
+input
+, final=
+False
+):
+│
+│
+320
+│   │
+# decode input (taking the buffer into account)
+│
+│
+321
+│   │
+data =
+self
+.buffer +
+input
+│
+│
+❱
+322
+│   │
+(result, consumed) =
+self
+._buffer_decode(data,
+self
+.errors, final)
+│
+│
+323
+│   │
+# keep undecoded input until the next call
+│
+│
+324
+│   │
+self
+.buffer = data[consumed:]
+│
+│
+325
+│   │
+return
+result
+│
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+UnicodeDecodeError:
+'utf-8'
+codec can't decode byte
+0xca
+in position
+0
+: invalid continuation byte
+The above exception was the direct cause of the following exception:
+╭───────────────────────────────
+Traceback
+(most recent call last)
+────────────────────────────────╮
+│
+in
+<module>
+:
+1
+│
+│
+│
+│
+❱
+1 loader.load()
+│
+│
+2
+│
+│
+│
+│
+/data/source/langchain/langchain/document_loaders/
+directory.py
+:
+84
+in
+load
+│
+│
+│
+│
+81
+│   │   │   │   │   │
+if
+self
+.silent_errors:
+│
+│
+82
+│   │   │   │   │   │   │
+logger.warning(e)
+│
+│
+83
+│   │   │   │   │   │
+else
+:
+│
+│
+❱
+84
+│   │   │   │   │   │   │
+raise
+e
+│
+│
+85
+│   │   │   │   │
+finally
+:
+│
+│
+86
+│   │   │   │   │   │
+if
+pbar:
+│
+│
+87
+│   │   │   │   │   │   │
+pbar.update(
+1
+)
+│
+│
+│
+│
+/data/source/langchain/langchain/document_loaders/
+directory.py
+:
+78
+in
+load
+│
+│
+│
+│
+75
+│   │   │
+if
+i.is_file():
+│
+│
+76
+│   │   │   │
+if
+_is_visible(i.relative_to(p))
+or
+self
+.load_hidden:
+│
+│
+77
+│   │   │   │   │
+try
+:
+│
+│
+❱
+78
+│   │   │   │   │   │
+sub_docs =
+self
+.loader_cls(
+str
+(i), **
+self
+.loader_kwargs).load()
+│
+│
+79
+│   │   │   │   │   │
+docs.extend(sub_docs)
+│
+│
+80
+│   │   │   │   │
+except
+Exception
+as
+e:
+│
+│
+81
+│   │   │   │   │   │
+if
+self
+.silent_errors:
+│
+│
+│
+│
+/data/source/langchain/langchain/document_loaders/
+text.py
+:
+44
+in
+load
+│
+│
+│
+│
+41
+│   │   │   │   │   │
+except
+UnicodeDecodeError
+:
+│
+│
+42
+│   │   │   │   │   │   │
+continue
+│
+│
+43
+│   │   │   │
+else
+:
+│
+│
+❱
+44
+│   │   │   │   │
+raise
+RuntimeError
+(
+f"Error loading {
+self
+.file_path
+}"
+)
+from
+e
+│
+│
+45
+│   │   │
+except
+Exception
+as
+e:
+│
+│
+46
+│   │   │   │
+raise
+RuntimeError
+(
+f"Error loading {
+self
+.file_path
+}"
+)
+from
+e
+│
+│
+47
+│
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+RuntimeError:
+Error loading ..
+/../../../../tests/integration_tests/examples/
+example-non-utf8.txt
+The file
+example-non-utf8.txt
+uses a different encoding the
+load()
+function fails with a helpful message indicating which file failed decoding.
+With the default behavior of
+TextLoader
+any failure to load any of the documents will fail the whole loading process and no documents are loaded.
+B. Silent fail
+#
+We can pass the parameter
+silent_errors
+to the
+DirectoryLoader
+to skip the files which could not be loaded and continue the load process.
+loader
+=
+DirectoryLoader
+(
+path
+,
+glob
+=
+"**/*.txt"
+,
+loader_cls
+=
+TextLoader
+,
+silent_errors
+=
+True
+)
+docs
+=
+loader
+.
+load
+()
+Error loading ../../../../../tests/integration_tests/examples/example-non-utf8.txt
+doc_sources
+=
+[
+doc
+.
+metadata
+[
+'source'
+]
+for
+doc
+in
+docs
+]
+doc_sources
+['../../../../../tests/integration_tests/examples/whatsapp_chat.txt',
+ '../../../../../tests/integration_tests/examples/example-utf8.txt']
+C. Auto detect encodings
+#
+We can also ask
+TextLoader
+to auto detect the file encoding before failing, by passing the
+autodetect_encoding
+to the loader class.
+text_loader_kwargs
+=
+{
+'autodetect_encoding'
+:
+True
+}
+loader
+=
+DirectoryLoader
+(
+path
+,
+glob
+=
+"**/*.txt"
+,
+loader_cls
+=
+TextLoader
+,
+loader_kwargs
+=
+text_loader_kwargs
+)
+docs
+=
+loader
+.
+load
+()
+doc_sources
+=
+[
+doc
+.
+metadata
+[
+'source'
+]
+for
+doc
+in
+docs
+]
+doc_sources
+['../../../../../tests/integration_tests/examples/example-non-utf8.txt',
+ '../../../../../tests/integration_tests/examples/whatsapp_chat.txt',
+ '../../../../../tests/integration_tests/examples/example-utf8.txt']
+previous
+Facebook Chat
+next
+HTML
+Contents
+Show a progress bar
+Use multithreading
+Change loader class
+Auto detect file encodings with TextLoader
+A. Default Behavior
+B. Silent fail
+C. Auto detect encodings
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

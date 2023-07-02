@@ -1,0 +1,62 @@
+.rst
+.pdf
+How-To Guides
+How-To Guides
+#
+A chain is made up of links, which can be either primitives or other chains.
+Primitives can be either
+prompts
+,
+models
+, arbitrary functions, or other chains.
+The examples here are broken up into three sections:
+Generic Functionality
+Covers both generic chains (that are useful in a wide variety of applications) as well as generic functionality related to those chains.
+Async API for Chain
+Creating a custom Chain
+Loading from LangChainHub
+LLM Chain
+Additional ways of running LLM Chain
+Parsing the outputs
+Initialize from string
+Router Chains
+Sequential Chains
+Serialization
+Transformation Chain
+Index-related Chains
+Chains related to working with indexes.
+Analyze Document
+Chat Over Documents with Chat History
+Graph QA
+Hypothetical Document Embeddings
+Question Answering with Sources
+Question Answering
+Summarization
+Retrieval Question/Answering
+Retrieval Question Answering with Sources
+Vector DB Text Generation
+All other chains
+All other types of chains!
+API Chains
+Self-Critique Chain with Constitutional AI
+FLARE
+GraphCypherQAChain
+NebulaGraphQAChain
+BashChain
+LLMCheckerChain
+LLM Math
+LLMRequestsChain
+LLMSummarizationCheckerChain
+Moderation
+Router Chains: Selecting from multiple prompts with MultiPromptChain
+Router Chains: Selecting from multiple prompts with MultiRetrievalQAChain
+OpenAPI Chain
+PAL
+SQL Chain example
+previous
+Getting Started
+next
+Async API for Chain
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

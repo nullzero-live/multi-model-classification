@@ -1,0 +1,145 @@
+.md
+.pdf
+RWKV-4
+Contents
+Installation and Setup
+Usage
+RWKV
+Model File
+Rwkv-4 models -> recommended VRAM
+RWKV-4
+#
+This page covers how to use the
+RWKV-4
+wrapper within LangChain.
+It is broken into two parts: installation and setup, and then usage with an example.
+Installation and Setup
+#
+Install the Python package with
+pip
+install
+rwkv
+Install the tokenizer Python package with
+pip
+install
+tokenizer
+Download a
+RWKV model
+and place it in your desired directory
+Download the
+tokens file
+Usage
+#
+RWKV
+#
+To use the RWKV wrapper, you need to provide the path to the pre-trained model file and the tokenizer’s configuration.
+from langchain.llms import RWKV
+
+# Test the model
+
+```python
+
+def generate_prompt(instruction, input=None):
+    if input:
+        return f"""Below is an instruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.
+
+# Instruction:
+{instruction}
+
+# Input:
+{input}
+
+# Response:
+"""
+    else:
+        return f"""Below is an instruction that describes a task. Write a response that appropriately completes the request.
+
+# Instruction:
+{instruction}
+
+# Response:
+"""
+
+
+model = RWKV(model="./models/RWKV-4-Raven-3B-v7-Eng-20230404-ctx4096.pth", strategy="cpu fp32", tokens_path="./rwkv/20B_tokenizer.json")
+response = model(generate_prompt("Once upon a time, "))
+Model File
+#
+You can find links to model file downloads at the
+RWKV-4-Raven
+repository.
+Rwkv-4 models -> recommended VRAM
+#
+RWKV
+VRAM
+Model
+|
+8
+bit
+|
+bf16
+/
+fp16
+|
+fp32
+14
+B
+|
+16
+GB
+|
+28
+GB
+|
+>
+50
+GB
+7
+B
+|
+8
+GB
+|
+14
+GB
+|
+28
+GB
+3
+B
+|
+2.8
+GB
+|
+6
+GB
+|
+12
+GB
+1
+b5
+|
+1.3
+GB
+|
+3
+GB
+|
+6
+GB
+See the
+rwkv pip
+page for more information about strategies, including streaming and cuda support.
+previous
+Runhouse
+next
+SageMaker Endpoint
+Contents
+Installation and Setup
+Usage
+RWKV
+Model File
+Rwkv-4 models -> recommended VRAM
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

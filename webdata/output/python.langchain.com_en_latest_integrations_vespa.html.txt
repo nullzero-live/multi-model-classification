@@ -1,0 +1,35 @@
+.md
+.pdf
+Vespa
+Contents
+Installation and Setup
+Retriever
+Vespa
+#
+Vespa
+is a fully featured search engine and vector database.
+It supports vector search (ANN), lexical search, and search in structured data, all in the same query.
+Installation and Setup
+#
+pip
+install
+pyvespa
+Retriever
+#
+See a
+usage example
+.
+from
+langchain.retrievers
+import
+VespaRetriever
+previous
+Vectara
+next
+Weights & Biases
+Contents
+Installation and Setup
+Retriever
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

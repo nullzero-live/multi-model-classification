@@ -1,0 +1,45 @@
+.md
+.pdf
+Amazon Bedrock
+Contents
+Installation and Setup
+LLM
+Text Embedding Models
+Amazon Bedrock
+#
+Amazon Bedrock
+is a fully managed service that makes FMs from leading AI startups and Amazon available via an API, so you can choose from a wide range of FMs to find the model that is best suited for your use case.
+Installation and Setup
+#
+pip
+install
+boto3
+LLM
+#
+See a
+usage example
+.
+from
+langchain
+import
+Bedrock
+Text Embedding Models
+#
+See a
+usage example
+.
+from
+langchain.embeddings
+import
+BedrockEmbeddings
+previous
+Aleph Alpha
+next
+AnalyticDB
+Contents
+Installation and Setup
+LLM
+Text Embedding Models
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

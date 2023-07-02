@@ -1,0 +1,41 @@
+.md
+.pdf
+AWS S3 Directory
+Contents
+Installation and Setup
+Document Loader
+AWS S3 Directory
+#
+Amazon Simple Storage Service (Amazon S3)
+is an object storage service.
+AWS S3 Directory
+AWS S3 Buckets
+Installation and Setup
+#
+pip
+install
+boto3
+Document Loader
+#
+See a
+usage example for S3DirectoryLoader
+.
+See a
+usage example for S3FileLoader
+.
+from
+langchain.document_loaders
+import
+S3DirectoryLoader
+,
+S3FileLoader
+previous
+AtlasDB
+next
+AZLyrics
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

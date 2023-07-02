@@ -1,0 +1,41 @@
+.ipynb
+.pdf
+Amazon Bedrock
+Amazon Bedrock
+#
+Amazon Bedrock
+is a fully managed service that makes FMs from leading AI startups and Amazon available via an API, so you can choose from a wide range of FMs to find the model that is best suited for your use case.
+%
+pip
+install boto3
+from
+langchain.embeddings
+import
+BedrockEmbeddings
+embeddings
+=
+BedrockEmbeddings
+(
+credentials_profile_name
+=
+"bedrock-admin"
+)
+embeddings
+.
+embed_query
+(
+"This is a content of the document"
+)
+embeddings
+.
+embed_documents
+([
+"This is a content of the document"
+])
+previous
+Aleph Alpha
+next
+Azure OpenAI
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

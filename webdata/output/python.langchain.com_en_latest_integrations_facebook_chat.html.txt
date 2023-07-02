@@ -1,0 +1,45 @@
+.md
+.pdf
+Facebook Chat
+Contents
+Installation and Setup
+Document Loader
+Facebook Chat
+#
+Messenger
+is an American proprietary instant messaging app and
+platform developed by
+Meta
+Platforms
+. Originally developed as
+Facebook
+Chat
+in 2008, the company revamped its
+messaging service in 2010.
+Installation and Setup
+#
+First, you need to install
+pandas
+python package.
+pip
+install
+pandas
+Document Loader
+#
+See a
+usage example
+.
+from
+langchain.document_loaders
+import
+FacebookChatLoader
+previous
+EverNote
+next
+Figma
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

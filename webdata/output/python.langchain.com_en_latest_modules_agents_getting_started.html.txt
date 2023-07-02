@@ -1,0 +1,118 @@
+.ipynb
+.pdf
+Getting Started
+Getting Started
+#
+Agents use an LLM to determine which actions to take and in what order.
+An action can either be using a tool and observing its output, or returning to the user.
+When used correctly agents can be extremely powerful. The purpose of this notebook is to show you how to easily use agents through the simplest, highest level API.
+In order to load agents, you should understand the following concepts:
+Tool: A function that performs a specific duty. This can be things like: Google Search, Database lookup, Python REPL, other chains. The interface for a tool is currently a function that is expected to have a string as an input, with a string as an output.
+LLM: The language model powering the agent.
+Agent: The agent to use. This should be a string that references a support agent class. Because this notebook focuses on the simplest, highest level API, this only covers using the standard supported agents. If you want to implement a custom agent, see the documentation for
+custom agents
+.
+Agents
+: For a list of supported agents and their specifications, see
+here
+.
+Tools
+: For a list of predefined tools and their specifications, see
+here
+.
+from
+langchain.agents
+import
+load_tools
+from
+langchain.agents
+import
+initialize_agent
+from
+langchain.agents
+import
+AgentType
+from
+langchain.llms
+import
+OpenAI
+First, let’s load the language model we’re going to use to control the agent.
+llm
+=
+OpenAI
+(
+temperature
+=
+0
+)
+Next, let’s load some tools to use. Note that the
+llm-math
+tool uses an LLM, so we need to pass that in.
+tools
+=
+load_tools
+([
+"serpapi"
+,
+"llm-math"
+],
+llm
+=
+llm
+)
+Finally, let’s initialize an agent with the tools, the language model, and the type of agent we want to use.
+agent
+=
+initialize_agent
+(
+tools
+,
+llm
+,
+agent
+=
+AgentType
+.
+ZERO_SHOT_REACT_DESCRIPTION
+,
+verbose
+=
+True
+)
+Now let’s test it out!
+agent
+.
+run
+(
+"Who is Leo DiCaprio's girlfriend? What is her current age raised to the 0.43 power?"
+)
+> Entering new AgentExecutor chain...
+I need to find out who Leo DiCaprio's girlfriend is and then calculate her age raised to the 0.43 power.
+Action: Search
+Action Input: "Leo DiCaprio girlfriend"
+Observation:
+Camila Morrone
+Thought:
+I need to find out Camila Morrone's age
+Action: Search
+Action Input: "Camila Morrone age"
+Observation:
+25 years
+Thought:
+I need to calculate 25 raised to the 0.43 power
+Action: Calculator
+Action Input: 25^0.43
+Observation:
+Answer: 3.991298452658078
+Thought:
+I now know the final answer
+Final Answer: Camila Morrone is Leo DiCaprio's girlfriend and her current age raised to the 0.43 power is 3.991298452658078.
+> Finished chain.
+"Camila Morrone is Leo DiCaprio's girlfriend and her current age raised to the 0.43 power is 3.991298452658078."
+previous
+Agents
+next
+Tools
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

@@ -13,9 +13,9 @@ def main():
     st.header("Logistic Regression & Random Forest Classifiers")
     # Query response
     textarea = st.text("Response Text",)
+    api_key = st.text_input("Enter your OpenAPI Key Here...")
     if st.button("Start"):
             # Start the spinner
-            api_key = st.text_input("Enter your OpenAPI Key Here...")
             with st.spinner("Running functions..."):
                 openai.api_key = api_key
                 llm = OpenAI(model_name="text-davinci-003", openai_api_key=api_key)

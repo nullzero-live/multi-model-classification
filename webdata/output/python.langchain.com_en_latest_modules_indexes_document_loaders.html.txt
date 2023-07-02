@@ -1,0 +1,140 @@
+.rst
+.pdf
+Document Loaders
+Contents
+Transform loaders
+Public dataset or service loaders
+Proprietary dataset or service loaders
+Document Loaders
+#
+Note
+Conceptual Guide
+Combining language models with your own text data is a powerful way to differentiate them.
+The first step in doing this is to load the data into “Documents” - a fancy way of say some pieces of text.
+The document loader is aimed at making this easy.
+The following document loaders are provided:
+Transform loaders
+#
+These
+transform
+loaders transform data from a specific format into the Document format.
+For example, there are
+transformers
+for CSV and SQL.
+Mostly, these loaders input data from files but sometime from URLs.
+A primary driver of a lot of these transformers is the
+Unstructured
+python package.
+This package transforms many types of files - text, powerpoint, images, html, pdf, etc - into text data.
+For detailed instructions on how to get set up with Unstructured, see installation guidelines
+here
+.
+OpenAIWhisperParser
+CoNLL-U
+Copy Paste
+CSV
+Email
+EPub
+EverNote
+Microsoft Excel
+Facebook Chat
+File Directory
+HTML
+Images
+Jupyter Notebook
+JSON
+Markdown
+Microsoft PowerPoint
+Microsoft Word
+Open Document Format (ODT)
+Pandas DataFrame
+PDF
+Sitemap
+Subtitle
+Telegram
+TOML
+Unstructured File
+URL
+Selenium URL Loader
+Playwright URL Loader
+WebBaseLoader
+Weather
+WhatsApp Chat
+Public dataset or service loaders
+#
+These datasets and sources are created for public domain and we use queries to search there
+and download necessary documents.
+For example,
+Hacker News
+service.
+We don’t need any access permissions to these datasets and services.
+Arxiv
+AZLyrics
+BiliBili
+College Confidential
+Gutenberg
+Hacker News
+HuggingFace dataset
+iFixit
+IMSDb
+MediaWikiDump
+Wikipedia
+YouTube transcripts
+Proprietary dataset or service loaders
+#
+These datasets and services are not from the public domain.
+These loaders mostly transform data from specific formats of applications or cloud services,
+for example
+Google Drive
+.
+We need access tokens and sometime other parameters to get access to these datasets and services.
+Airbyte JSON
+Apify Dataset
+AWS S3 Directory
+AWS S3 File
+Azure Blob Storage Container
+Azure Blob Storage File
+Blackboard
+Blockchain
+ChatGPT Data
+Confluence
+Examples
+Diffbot
+Docugami
+DuckDB
+Figma
+GitBook
+Git
+Google BigQuery
+Google Cloud Storage Directory
+Google Cloud Storage File
+Google Drive
+Image captions
+Iugu
+Joplin
+Microsoft OneDrive
+Modern Treasury
+Notion DB 2/2
+Notion DB 1/2
+Obsidian
+Psychic
+PySpark DataFrame Loader
+ReadTheDocs Documentation
+Reddit
+Roam
+Slack
+Spreedly
+Stripe
+2Markdown
+Twitter
+previous
+Getting Started
+next
+OpenAIWhisperParser
+Contents
+Transform loaders
+Public dataset or service loaders
+Proprietary dataset or service loaders
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

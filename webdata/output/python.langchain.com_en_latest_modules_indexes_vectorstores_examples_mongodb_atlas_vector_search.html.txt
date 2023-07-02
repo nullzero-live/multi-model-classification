@@ -1,0 +1,293 @@
+.ipynb
+.pdf
+Commented out until further notice
+Commented out until further notice
+#
+MongoDB Atlas Vector Search
+MongoDB Atlas
+is a document database managed in the cloud. It also enables Lucene and its vector search feature.
+This notebook shows how to use the functionality related to the
+MongoDB
+Atlas
+Vector
+Search
+feature where you can store your embeddings in MongoDB documents and create a Lucene vector index to perform a KNN search.
+It uses the
+knnBeta Operator
+available in MongoDB Atlas Search. This feature is in early access and available only for evaluation purposes, to validate functionality, and to gather feedback from a small closed group of early access users. It is not recommended for production deployments as we may introduce breaking changes.
+To use MongoDB Atlas, you must have first deployed a cluster. Free clusters are available.
+Here is the MongoDB Atlas
+quick start
+.
+!
+pip
+install
+pymongo
+import
+os
+MONGODB_ATLAS_URI
+=
+os
+.
+environ
+[
+'MONGODB_ATLAS_URI'
+]
+We want to use
+OpenAIEmbeddings
+so we have to get the OpenAI API Key. Make sure the environment variable
+OPENAI_API_KEY
+is set up before proceeding.
+Now, let’s create a Lucene vector index on your cluster. In the below example,
+embedding
+is the name of the field that contains the embedding vector. Please refer to the
+documentation
+to get more details on how to define an Atlas Search index.
+You can name the index
+langchain_demo
+and create the index on the namespace
+lanchain_db.langchain_col
+. Finally, write the following definition in the JSON editor:
+{
+"mappings"
+:
+{
+"dynamic"
+:
+true
+,
+"fields"
+:
+{
+"embedding"
+:
+{
+"dimensions"
+:
+1536
+,
+"similarity"
+:
+"cosine"
+,
+"type"
+:
+"knnVector"
+}
+}
+}
+}
+from
+langchain.embeddings.openai
+import
+OpenAIEmbeddings
+from
+langchain.text_splitter
+import
+CharacterTextSplitter
+from
+langchain.vectorstores
+import
+MongoDBAtlasVectorSearch
+from
+langchain.document_loaders
+import
+TextLoader
+from
+langchain.document_loaders
+import
+TextLoader
+loader
+=
+TextLoader
+(
+'../../../state_of_the_union.txt'
+)
+documents
+=
+loader
+.
+load
+()
+text_splitter
+=
+CharacterTextSplitter
+(
+chunk_size
+=
+1000
+,
+chunk_overlap
+=
+0
+)
+docs
+=
+text_splitter
+.
+split_documents
+(
+documents
+)
+embeddings
+=
+OpenAIEmbeddings
+()
+from
+pymongo
+import
+MongoClient
+# initialize MongoDB python client
+client
+=
+MongoClient
+(
+MONGODB_ATLAS_CONNECTION_STRING
+)
+db_name
+=
+"lanchain_db"
+collection_name
+=
+"langchain_col"
+collection
+=
+client
+[
+db_name
+][
+collection_name
+]
+index_name
+=
+"langchain_demo"
+# insert the documents in MongoDB Atlas with their embedding
+docsearch
+=
+MongoDBAtlasVectorSearch
+.
+from_documents
+(
+docs
+,
+embeddings
+,
+collection
+=
+collection
+,
+index_name
+=
+index_name
+)
+# perform a similarity search between the embedding of the query and the embeddings of the documents
+query
+=
+"What did the president say about Ketanji Brown Jackson"
+docs
+=
+docsearch
+.
+similarity_search
+(
+query
+)
+print
+(
+docs
+[
+0
+]
+.
+page_content
+)
+You can reuse vector index you created before, make sure environment variable
+OPENAI_API_KEY
+is set up, then create another file.
+from
+pymongo
+import
+MongoClient
+from
+langchain.vectorstores
+import
+MongoDBAtlasVectorSearch
+from
+langchain.embeddings.openai
+import
+OpenAIEmbeddings
+import
+os
+MONGODB_ATLAS_URI
+=
+os
+.
+environ
+[
+'MONGODB_ATLAS_URI'
+]
+# initialize MongoDB python client
+client
+=
+MongoClient
+(
+MONGODB_ATLAS_URI
+)
+db_name
+=
+"langchain_db"
+collection_name
+=
+"langchain_col"
+collection
+=
+client
+[
+db_name
+][
+collection_name
+]
+index_name
+=
+"langchain_index"
+# initialize vector store
+vectorStore
+=
+MongoDBAtlasVectorSearch
+(
+collection
+,
+OpenAIEmbeddings
+(),
+index_name
+=
+index_name
+)
+# perform a similarity search between the embedding of the query and the embeddings of the documents
+query
+=
+"What did the president say about Ketanji Brown Jackson"
+docs
+=
+vectorStore
+.
+similarity_search
+(
+query
+)
+print
+(
+docs
+[
+0
+]
+.
+page_content
+)
+previous
+Milvus
+next
+MyScale
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

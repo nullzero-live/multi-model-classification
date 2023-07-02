@@ -1,0 +1,41 @@
+.ipynb
+.pdf
+Fake Embeddings
+Fake Embeddings
+#
+LangChain also provides a fake embedding class. You can use this to test your pipelines.
+from
+langchain.embeddings
+import
+FakeEmbeddings
+embeddings
+=
+FakeEmbeddings
+(
+size
+=
+1352
+)
+query_result
+=
+embeddings
+.
+embed_query
+(
+"foo"
+)
+doc_results
+=
+embeddings
+.
+embed_documents
+([
+"foo"
+])
+previous
+Elasticsearch
+next
+Google Vertex AI PaLM
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

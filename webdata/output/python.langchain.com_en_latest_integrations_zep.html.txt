@@ -1,0 +1,43 @@
+.md
+.pdf
+Zep
+Contents
+Installation and Setup
+Retriever
+Zep
+#
+Zep
+- A long-term memory store for LLM applications.
+Zep
+stores, summarizes, embeds, indexes, and enriches conversational AI chat histories, and exposes them via simple, low-latency APIs.
+Long-term memory persistence, with access to historical messages irrespective of your summarization strategy.
+Auto-summarization of memory messages based on a configurable message window. A series of summaries are stored, providing flexibility for future summarization strategies.
+Vector search over memories, with messages automatically embedded on creation.
+Auto-token counting of memories and summaries, allowing finer-grained control over prompt assembly.
+Python and JavaScript SDKs.
+Zep
+project
+Installation and Setup
+#
+pip
+install
+zep_python
+Retriever
+#
+See a
+usage example
+.
+from
+langchain.retrievers
+import
+ZepRetriever
+previous
+YouTube
+next
+Zilliz
+Contents
+Installation and Setup
+Retriever
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

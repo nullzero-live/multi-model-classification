@@ -1,0 +1,25 @@
+.rst
+.pdf
+Chains
+Chains
+#
+Note
+Conceptual Guide
+Using an LLM in isolation is fine for some simple applications,
+but more complex applications require chaining LLMs - either with each other or with other experts.
+LangChain provides a standard interface for
+Chains
+, as well as several common implementations of chains.
+Getting Started
+: An overview of chains.
+How-To Guides
+: How-to guides about various types of chains.
+Reference
+: API reference documentation for all Chain classes.
+previous
+Zep
+next
+Getting Started
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

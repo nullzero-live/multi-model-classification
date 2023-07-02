@@ -1,0 +1,92 @@
+.ipynb
+.pdf
+SVM
+Contents
+Create New Retriever with Texts
+Use Retriever
+SVM
+#
+Support vector machines (SVMs)
+are a set of supervised learning methods used for classification, regression and outliers detection.
+This notebook goes over how to use a retriever that under the hood uses an
+SVM
+using
+scikit-learn
+package.
+Largely based on https://github.com/karpathy/randomfun/blob/master/knn_vs_svm.ipynb
+#!pip install scikit-learn
+#!pip install lark
+We want to use
+OpenAIEmbeddings
+so we have to get the OpenAI API Key.
+import
+os
+import
+getpass
+os
+.
+environ
+[
+'OPENAI_API_KEY'
+]
+=
+getpass
+.
+getpass
+(
+'OpenAI API Key:'
+)
+from
+langchain.retrievers
+import
+SVMRetriever
+from
+langchain.embeddings
+import
+OpenAIEmbeddings
+Create New Retriever with Texts
+#
+retriever
+=
+SVMRetriever
+.
+from_texts
+([
+"foo"
+,
+"bar"
+,
+"world"
+,
+"hello"
+,
+"foo bar"
+],
+OpenAIEmbeddings
+())
+Use Retriever
+#
+We can now use the retriever!
+result
+=
+retriever
+.
+get_relevant_documents
+(
+"foo"
+)
+result
+[Document(page_content='foo', metadata={}),
+ Document(page_content='foo bar', metadata={}),
+ Document(page_content='hello', metadata={}),
+ Document(page_content='world', metadata={})]
+previous
+Self-querying
+next
+TF-IDF
+Contents
+Create New Retriever with Texts
+Use Retriever
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

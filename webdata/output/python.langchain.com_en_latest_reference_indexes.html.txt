@@ -1,0 +1,21 @@
+.rst
+.pdf
+Indexes
+Indexes
+#
+Indexes refer to ways to structure documents so that LLMs can best interact with them.
+LangChain has a number of modules that help you load, structure, store, and retrieve documents.
+Docstore
+Text Splitter
+Document Loaders
+Vector Stores
+Retrievers
+Document Compressors
+Document Transformers
+previous
+Embeddings
+next
+Docstore
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

@@ -1,0 +1,51 @@
+.md
+.pdf
+Figma
+Contents
+Installation and Setup
+Document Loader
+Figma
+#
+Figma
+is a collaborative web application for interface design.
+Installation and Setup
+#
+The Figma API requires an
+access
+token
+,
+node_ids
+, and a
+file
+key
+.
+The
+file
+key
+can be pulled from the URL.  https://www.figma.com/file/{filekey}/sampleFilename
+Node
+IDs
+are also available in the URL. Click on anything and look for the ‘?node-id={node_id}’ param.
+Access
+token
+instructions
+.
+Document Loader
+#
+See a
+usage example
+.
+from
+langchain.document_loaders
+import
+FigmaFileLoader
+previous
+Facebook Chat
+next
+ForefrontAI
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

@@ -1,0 +1,71 @@
+.md
+.pdf
+Azure Blob Storage
+Contents
+Installation and Setup
+Document Loader
+Azure Blob Storage
+#
+Azure Blob Storage
+is Microsoft’s object storage solution for the cloud. Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that doesn’t adhere to a particular data model or definition, such as text or binary data.
+Azure Files
+offers fully managed
+file shares in the cloud that are accessible via the industry standard Server Message Block (
+SMB
+) protocol,
+Network File System (
+NFS
+) protocol, and
+Azure
+Files
+REST
+API
+.
+Azure
+Files
+are based on the
+Azure
+Blob
+Storage
+.
+Azure
+Blob
+Storage
+is designed for:
+Serving images or documents directly to a browser.
+Storing files for distributed access.
+Streaming video and audio.
+Writing to log files.
+Storing data for backup and restore, disaster recovery, and archiving.
+Storing data for analysis by an on-premises or Azure-hosted service.
+Installation and Setup
+#
+pip
+install
+azure-storage-blob
+Document Loader
+#
+See a
+usage example for the Azure Blob Storage
+.
+from
+langchain.document_loaders
+import
+AzureBlobStorageContainerLoader
+See a
+usage example for the Azure Files
+.
+from
+langchain.document_loaders
+import
+AzureBlobStorageFileLoader
+previous
+AZLyrics
+next
+Azure Cognitive Search
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

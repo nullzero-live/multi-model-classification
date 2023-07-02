@@ -1,0 +1,40 @@
+.md
+.pdf
+Microsoft OneDrive
+Contents
+Installation and Setup
+Document Loader
+Microsoft OneDrive
+#
+Microsoft OneDrive
+(formerly
+SkyDrive
+) is a file-hosting service operated by Microsoft.
+Installation and Setup
+#
+First, you need to install a python package.
+pip
+install
+o365
+Then follow instructions
+here
+.
+Document Loader
+#
+See a
+usage example
+.
+from
+langchain.document_loaders
+import
+OneDriveLoader
+previous
+Metal
+next
+Microsoft PowerPoint
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

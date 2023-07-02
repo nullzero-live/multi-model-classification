@@ -1,0 +1,64 @@
+.md
+.pdf
+Cohere
+Contents
+Installation and Setup
+LLM
+Text Embedding Model
+Retriever
+Cohere
+#
+Cohere
+is a Canadian startup that provides natural language processing models
+that help companies improve human-machine interactions.
+Installation and Setup
+#
+Install the Python SDK :
+pip
+install
+cohere
+Get a
+Cohere api key
+and set it as an environment variable (
+COHERE_API_KEY
+)
+LLM
+#
+There exists an Cohere LLM wrapper, which you can access with
+See a
+usage example
+.
+from
+langchain.llms
+import
+Cohere
+Text Embedding Model
+#
+There exists an Cohere Embedding model, which you can access with
+from
+langchain.embeddings
+import
+CohereEmbeddings
+For a more detailed walkthrough of this, see
+this notebook
+Retriever
+#
+See a
+usage example
+.
+from
+langchain.retrievers.document_compressors
+import
+CohereRerank
+previous
+ClickHouse
+next
+College Confidential
+Contents
+Installation and Setup
+LLM
+Text Embedding Model
+Retriever
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

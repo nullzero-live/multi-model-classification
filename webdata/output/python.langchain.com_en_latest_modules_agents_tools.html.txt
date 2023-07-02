@@ -1,0 +1,57 @@
+.rst
+.pdf
+Tools
+Tools
+#
+Note
+Conceptual Guide
+Tools are ways that an agent can use to interact with the outside world.
+For an overview of what a tool is, how to use them, and a full list of examples, please see the getting started documentation
+Getting Started
+Next, we have some examples of customizing and generically working with tools
+Defining Custom Tools
+Multi-Input Tools
+Tool Input Schema
+In this documentation we cover generic tooling functionality (eg how to create your own)
+as well as examples of tools and how to use them.
+Apify
+ArXiv API Tool
+AWS Lambda API
+Shell Tool
+Bing Search
+Brave Search
+ChatGPT Plugins
+DuckDuckGo Search
+File System Tools
+Google Places
+Google Search
+Google Serper API
+Gradio Tools
+GraphQL tool
+HuggingFace Tools
+Human as a tool
+IFTTT WebHooks
+Metaphor Search
+Call the API
+Use Metaphor as a tool
+OpenWeatherMap API
+PubMed Tool
+Python REPL
+Requests
+SceneXplain
+Search Tools
+SearxNG Search API
+SerpAPI
+Twilio
+Wikipedia
+Wolfram Alpha
+YouTubeSearchTool
+Zapier Natural Language Actions API
+Example with SimpleSequentialChain
+previous
+Getting Started
+next
+Getting Started
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

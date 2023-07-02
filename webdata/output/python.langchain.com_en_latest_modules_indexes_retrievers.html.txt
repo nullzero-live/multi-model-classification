@@ -1,0 +1,45 @@
+.rst
+.pdf
+Retrievers
+Retrievers
+#
+Note
+Conceptual Guide
+The retriever interface is a generic interface that makes it easy to combine documents with
+language models. This interface exposes a
+get_relevant_documents
+method which takes in a query
+(a string) and returns a list of documents.
+Please see below for a list of all the retrievers supported.
+Arxiv
+AWS Kendra
+Azure Cognitive Search
+ChatGPT Plugin
+Self-querying with Chroma
+Cohere Reranker
+Contextual Compression
+Stringing compressors and document transformers together
+Databerry
+ElasticSearch BM25
+kNN
+Metal
+Pinecone Hybrid Search
+PubMed Retriever
+Self-querying with Qdrant
+Self-querying
+SVM
+TF-IDF
+Time Weighted VectorStore
+VectorStore
+Vespa
+Weaviate Hybrid Search
+Self-querying with Weaviate
+Wikipedia
+Zep
+previous
+Zilliz
+next
+Arxiv
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.

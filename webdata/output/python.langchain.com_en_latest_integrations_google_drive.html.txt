@@ -1,0 +1,41 @@
+.md
+.pdf
+Google Drive
+Contents
+Installation and Setup
+Document Loader
+Google Drive
+#
+Google Drive
+is a file storage and synchronization service developed by Google.
+Currently, only
+Google
+Docs
+are supported.
+Installation and Setup
+#
+First, you need to install several python package.
+pip
+install
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+Document Loader
+#
+See a
+usage example and authorizing instructions
+.
+from
+langchain.document_loaders
+import
+GoogleDriveLoader
+previous
+Google Cloud Storage
+next
+Google Search
+Contents
+Installation and Setup
+Document Loader
+By Harrison Chase
+© Copyright 2023, Harrison Chase.
+Last updated on Jun 09, 2023.
