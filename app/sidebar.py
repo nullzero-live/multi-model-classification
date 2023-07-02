@@ -21,9 +21,6 @@ def sidebar():
         st.markdown(
             "## How to use\n"
             "1. Enter your [OpenAI API key](https://platform.openai.com/account/api-keys) below🔑\n"  # noqa: E501
-            "2. Upload a pdf, docx, or txt file📄\n"
-            "3. Ask a question about the document💬\n"
-            "4. Chat with GPT generally🤖\n"
         )
         api_key_input = st.text_input(
             "OpenAI API Key",
