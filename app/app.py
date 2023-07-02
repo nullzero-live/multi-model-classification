@@ -37,7 +37,7 @@ def main():
                     st.markdown(f"AORC: {aorc:}")
     summaryarea=st.text("Summary Text",)
     summaryarea.write("This is a summary of the results...")
-    summaryarea.write(llm(f"summarize: "{results}))
+    summaryarea.write(llm(f"summarize: {results}"))
     
     
     
