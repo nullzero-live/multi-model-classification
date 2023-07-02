@@ -12,10 +12,10 @@ def main():
     st.header("Logistic Regression & Random Forest Classifiers")
     # Query response
     textarea = st.text("Response Text",)
-    if st.button("Start") and api_key_input:
+    if st.button("Start"):
             # Start the spinner
             with st.spinner("Running functions..."):
-                openai.api_key = api_key
+                openai.api_key = api_key_input
                 llm = OpenAI(model_name="text-davinci-003", openai_api_key=api_key)
                 textarea.write("authenticating...")
                 df=gc_auth()
