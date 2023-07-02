@@ -10,7 +10,7 @@ from langchain.llms import OpenAI
 def main():
     # App title
     st.title("Running multiple models in a Streamlit app")
-    st.header("Logistic Regression & Random Forest Classifiers"))
+    st.header("Logistic Regression & Random Forest Classifiers")
     # Query response
     textarea = st.text("Response Text",)
     if st.button("Start"):
