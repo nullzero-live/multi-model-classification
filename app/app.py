@@ -13,13 +13,12 @@ def main():
     st.header("Logistic Regression & Random Forest Classifiers")
     
     api_key = st.text_input("Enter your OpenAPI Key Here...")
-    llm = OpenAI(model_name="text-davinci-003", openai_api_key=api_key)
     if api_key:
         openai.api_key = api_key
     else:
         print("Error with API key")
     
-    llm = OpenAI(api_key)
+    llm = OpenAI(model_name="text-davinci-003", openai_api_key=api_key)
     
     # Query response
     textarea = st.text("Response Text",)
