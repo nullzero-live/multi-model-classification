@@ -30,7 +30,7 @@ def main():
     st.title("Summary of Results Incoming... Please Wait.")
     summaryarea=st.text("Summary Text",)
     summaryarea.write("This is a summary of the results...")
-    summaryarea.write(llm(f"summarize: {results} as percentages and explain the meaning of the results as a separate paragraph. Be concise."))
+    summaryarea.write(llm(f"summarize: {results} as percentages and explain the meaning of the results as a separate paragraph. Be concise. In a new paragraph explain Accuracy and AORC in detail"))
     
     
     
