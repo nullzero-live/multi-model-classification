@@ -12,13 +12,12 @@ def api_init():
         api_key=str(os.environ['PINECONE_API_KEY']),  
         environment=str(os.environ['PINECONE_ENV'])  
         )
-    index_name = "sklearn-docs"
+    if index_name in pinecone.list_indexes():
+        index_name = index_name
+    else:
+        index_name = "sklearn-docs"
     openai.api_key=os.environ['OPENAI_API_KEY']
         
-    
-
-
-
 def main():
     
     sidebar()
