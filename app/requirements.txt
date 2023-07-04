@@ -6,6 +6,7 @@ matplotlib==3.7.0
 numpy==1.24.2
 openai==0.27.8
 pandas==1.5.3
+pinecone==2.2.2
 scikit-learn==1.2.2
 streamlit==1.23.1
 tqdm==4.64.1
