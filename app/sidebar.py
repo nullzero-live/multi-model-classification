@@ -45,6 +45,8 @@ def sidebar():
             value=st.session_state.get("PINECONE_ENV", ""),
         )
         
+        api_submit = st.button("Submit")
+        
         ### IF REQUIRED FOR GPT-4 ###
         '''org_input = st.text_input(
             "OpenAI Organization ID",
@@ -57,10 +59,11 @@ def sidebar():
         
         
 
-        if api_key_input:
+        if api_submit:
             set_openai_api_key(api_key_input)
             set_pinecone_api_key(pinecone_key_input)
             set_pinecone_env(pinecone_env_input)
+            st.write("API key submitted! 🚀")
             #set_openai_org(org_input)
             
         
