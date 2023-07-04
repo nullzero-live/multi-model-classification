@@ -7,7 +7,15 @@ from langchain.llms import OpenAI
 from sidebar import sidebar
 from edit_embed import load_chain, query_refiner
 
-
+def api_init():
+    pinecone.init(
+        api_key=str(os.environ['PINECONE_API_KEY']),  
+        environment=str(os.environ['PINECONE_ENV'])  
+        )
+    index_name = "sklearn-docs"
+    openai.api_key=os.environ['OPENAI_API_KEY']
+        
+    
 
 
 
@@ -23,13 +31,7 @@ def main():
     
     textarea = st.text("Response Text",)
     if st.button("Start"):
-        pinecone.init(
-        api_key=str(os.environ['PINECONE_API_KEY']),  
-        environment=str(os.environ['PINECONE_ENV'])  
-        )
-        index_name = str(os.environ['PINECONE_INDEX_NAME'])
-        openai.api_key=os.environ['OPENAI_API_KEY']
-        
+        api_init()
             # Start the spinner
         with st.spinner("Running functions..."):
             llm = OpenAI(model_name="text-davinci-003", temperature=0.2)                
